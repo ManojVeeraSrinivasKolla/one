@@ -1,31 +1,42 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Nagadevi 🥲 SQL roadmap</title>
-  <!-- Google Fonts & Icons -->
+  <!-- Fonts & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
-    * { margin:0; padding:0; box-sizing:border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
     body {
-      background: #f8faff;
+      background: #f2f7ff;
       font-family: 'Inter', sans-serif;
       color: #0b1e33;
-      padding: 1.5rem;
+      padding: 1.8rem 1.2rem;
       line-height: 1.5;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     .card {
-      max-width: 1050px;
+      max-width: 1100px;
+      width: 100%;
       margin: 0 auto;
-      background: white;
-      border-radius: 2.5rem;
-      box-shadow: 0 30px 60px -20px rgba(0,20,50,0.15);
-      padding: 2.5rem 2.5rem 3rem;
-      transition: 0.2s;
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(2px);
+      border-radius: 3rem;
+      box-shadow: 0 40px 80px -20px rgba(0,30,70,0.2);
+      padding: 2.8rem 2.8rem 3.2rem;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255,255,255,0.4);
     }
     /* header */
     .greeting {
@@ -33,104 +44,127 @@
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
-      margin-bottom: 2rem;
-      border-bottom: 2px dashed #e6edf5;
-      padding-bottom: 1.2rem;
+      margin-bottom: 1.8rem;
+      border-bottom: 2px dashed #dce5f0;
+      padding-bottom: 1.4rem;
     }
     .greeting h1 {
       font-family: 'Space Grotesk', sans-serif;
       font-weight: 700;
-      font-size: 2.2rem;
-      background: linear-gradient(135deg, #0b2b5c, #2563eb);
+      font-size: 2.6rem;
+      background: linear-gradient(145deg, #0b2b5c, #2563eb);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.4rem;
     }
     .greeting h1 i {
       -webkit-text-fill-color: #f97316;
-      font-size: 2rem;
+      font-size: 2.4rem;
+      animation: pulse-star 2s infinite ease-in-out;
     }
     .greeting .sub {
-      background: #eef4ff;
-      padding: 0.5rem 1.2rem;
-      border-radius: 40px;
-      font-weight: 500;
+      background: #e6effa;
+      padding: 0.5rem 1.6rem;
+      border-radius: 60px;
+      font-weight: 600;
       color: #1d4ed8;
       font-size: 0.95rem;
-      letter-spacing: 0.3px;
-      box-shadow: inset 0 1px 3px rgba(0,0,0,0.02);
+      letter-spacing: 0.4px;
+      box-shadow: inset 0 1px 4px rgba(0,0,0,0.02);
+      border: 1px solid rgba(37,99,235,0.08);
     }
-    .greeting .sub i { margin-right: 6px; }
+    .greeting .sub i { margin-right: 8px; }
 
-    /* message box */
+    /* message box — exactly the text you wanted */
     .message-box {
       background: #f0f7fe;
-      border-radius: 2rem 2rem 2rem 0.5rem;
-      padding: 1.8rem 2.2rem;
-      margin: 1.2rem 0 2.5rem 0;
+      border-radius: 2.4rem 2.4rem 2.4rem 0.8rem;
+      padding: 1.8rem 2.4rem;
+      margin: 0.5rem 0 2.2rem 0;
       border-left: 8px solid #2563eb;
-      box-shadow: 0 6px 14px rgba(37,99,235,0.06);
+      box-shadow: 0 6px 18px rgba(37,99,235,0.06);
+      transition: 0.2s;
     }
     .message-box p {
-      font-size: 1.2rem;
+      font-size: 1.25rem;
       font-weight: 450;
-      color: #0b2b5c;
+      color: #0a2442;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.3rem 0.8rem;
     }
     .message-box p i {
       color: #f97316;
-      margin-right: 6px;
+      margin-right: 4px;
     }
     .message-box .highlight {
       background: #fde68a;
-      padding: 0.1rem 0.8rem;
-      border-radius: 30px;
+      padding: 0.1rem 1.2rem;
+      border-radius: 40px;
       font-weight: 600;
       color: #1e293b;
       display: inline-block;
     }
+    .message-box .arrow-msg {
+      background: #ffffffcc;
+      padding: 0.2rem 1.2rem;
+      border-radius: 60px;
+      font-weight: 500;
+      border: 1px solid rgba(37,99,235,0.15);
+      backdrop-filter: blur(2px);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
 
-    /* roadmap grid */
+    /* roadmap title */
     .roadmap-title {
       font-family: 'Space Grotesk', sans-serif;
       font-weight: 600;
-      font-size: 1.8rem;
-      margin: 2rem 0 0.5rem 0;
+      font-size: 1.9rem;
+      margin: 2rem 0 0.2rem 0;
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 14px;
     }
     .roadmap-title i {
       color: #2563eb;
       font-size: 2rem;
+      animation: float 3s infinite alternate ease-in-out;
     }
+
+    /* grid */
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 1.5rem;
-      margin: 1.8rem 0 2rem 0;
+      gap: 1.6rem;
+      margin: 1.6rem 0 2rem 0;
     }
     .step {
       background: #ffffff;
-      border-radius: 1.8rem;
-      padding: 1.6rem 1.4rem 1.8rem;
-      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.02);
-      border: 1px solid #eef2f8;
+      border-radius: 2rem;
+      padding: 1.8rem 1.4rem 1.8rem;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.02);
+      border: 1px solid #eaf0f8;
       transition: all 0.25s ease;
       display: flex;
       flex-direction: column;
+      position: relative;
+      backdrop-filter: blur(2px);
     }
     .step:hover {
-      transform: translateY(-6px);
-      border-color: #b9d0f0;
-      box-shadow: 0 18px 30px -12px rgba(37,99,235,0.12);
+      transform: translateY(-8px);
+      border-color: #b3ccf0;
+      box-shadow: 0 20px 36px -12px rgba(37,99,235,0.15);
     }
     .step .num {
-      background: #e6edf7;
-      width: 36px;
-      height: 36px;
+      background: #e3edfc;
+      width: 40px;
+      height: 40px;
       border-radius: 40px;
       display: flex;
       align-items: center;
@@ -138,40 +172,54 @@
       font-weight: 700;
       color: #1d4ed8;
       margin-bottom: 0.8rem;
-      font-size: 1rem;
+      font-size: 1.1rem;
+      transition: 0.15s;
+    }
+    .step:hover .num {
+      background: #2563eb;
+      color: white;
     }
     .step h3 {
       font-weight: 600;
-      font-size: 1.2rem;
-      margin-bottom: 0.25rem;
+      font-size: 1.25rem;
+      margin-bottom: 0.3rem;
       color: #0b1e33;
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
     .step p {
-      color: #334e77;
+      color: #2a4a74;
       font-size: 0.95rem;
       margin-top: 0.2rem;
       flex: 1;
     }
     .step .badge {
-      margin-top: 1rem;
+      margin-top: 1.2rem;
       background: #eaf1fd;
-      padding: 0.3rem 1rem;
-      border-radius: 30px;
+      padding: 0.3rem 1.2rem;
+      border-radius: 40px;
       font-size: 0.75rem;
       font-weight: 600;
       color: #1d4ed8;
       align-self: flex-start;
       letter-spacing: 0.3px;
+      border: 1px solid transparent;
+      transition: 0.15s;
     }
-    .step .badge i { margin-right: 6px; }
+    .step:hover .badge {
+      background: #dce8fc;
+      border-color: #8bb0ea;
+    }
 
-    /* resources / extra tips */
+    /* extra tips */
     .extra-tips {
       background: #fafcff;
-      border-radius: 2rem;
-      padding: 1.8rem 2rem;
+      border-radius: 2.2rem;
+      padding: 1.8rem 2.2rem;
       margin-top: 2rem;
-      border: 1px solid #e6edf5;
+      border: 1px solid #e2ebf6;
+      transition: 0.2s;
     }
     .extra-tips h4 {
       font-weight: 600;
@@ -191,93 +239,115 @@
     }
     .tip-list span {
       background: white;
-      padding: 0.4rem 1.2rem;
-      border-radius: 40px;
+      padding: 0.4rem 1.6rem;
+      border-radius: 60px;
       border: 1px solid #dce5f0;
       font-size: 0.9rem;
       font-weight: 500;
-      color: #1e3a6b;
+      color: #1a3a6b;
+      transition: 0.15s;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.01);
     }
     .tip-list span i {
       color: #2563eb;
-      margin-right: 6px;
+      margin-right: 8px;
+    }
+    .tip-list span:hover {
+      background: #eef6ff;
+      border-color: #2563eb;
+      transform: scale(1.02);
     }
 
     /* footer */
     .footer-note {
       margin-top: 2.8rem;
       text-align: center;
-      color: #4b6a92;
+      color: #335584;
       font-size: 0.95rem;
       border-top: 1px solid #e2ebf5;
       padding-top: 2rem;
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 1.2rem;
+      gap: 1.2rem 2rem;
       flex-wrap: wrap;
     }
     .footer-note i {
       color: #f97316;
-      font-size: 1.2rem;
     }
     .btn-cta {
       background: #0b2b5c;
       color: white;
       border: none;
-      padding: 0.8rem 2rem;
+      padding: 0.8rem 2.2rem;
       border-radius: 60px;
       font-weight: 600;
       font-size: 1rem;
       cursor: pointer;
-      transition: 0.2s;
-      box-shadow: 0 4px 10px rgba(11,43,92,0.15);
+      transition: all 0.2s ease;
+      box-shadow: 0 6px 14px rgba(11,43,92,0.2);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
     }
-    .btn-cta i { margin-right: 8px; }
+    .btn-cta i { font-size: 1.1rem; }
     .btn-cta:hover {
-      background: #1a3f73;
-      transform: scale(1.02);
-      box-shadow: 0 8px 18px rgba(11,43,92,0.2);
+      background: #1f4177;
+      transform: scale(1.04);
+      box-shadow: 0 10px 22px rgba(11,43,92,0.25);
+    }
+    .btn-cta:active { transform: scale(0.96); }
+
+    /* animations */
+    @keyframes pulse-star {
+      0% { opacity: 0.8; transform: scale(0.95); }
+      100% { opacity: 1; transform: scale(1.15); }
+    }
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      100% { transform: translateY(-6px); }
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 650px) {
       body { padding: 0.8rem; }
-      .card { padding: 1.8rem 1.2rem; }
-      .greeting h1 { font-size: 1.8rem; }
-      .message-box p { font-size: 1rem; }
+      .card { padding: 1.8rem 1rem; }
+      .greeting h1 { font-size: 2rem; }
+      .message-box p { font-size: 1.05rem; }
+      .grid { gap: 1.2rem; }
     }
   </style>
 </head>
 <body>
 <div class="card">
-  
-  <!-- HEADER with Nagadevi's name -->
+
+  <!-- header with NAGADEVI -->
   <div class="greeting">
     <h1>
       <i class="fas fa-star"></i> NAGADEVI
     </h1>
-    <span class="sub"><i class="fas fa-map-signs"></i> SQL learning path</span>
+    <span class="sub"><i class="fas fa-map-signs"></i> SQL · start to confident</span>
   </div>
 
-  <!-- MAIN MESSAGE : exactly what you asked -->
+  <!-- main message — exactly your words + context -->
   <div class="message-box">
     <p>
-      <i class="fas fa-quote-left" style="opacity:0.7;"></i> 
-      Hey Nagadevi! <span class="highlight">💬</span> “Nijam ga radhu naku. EYLA START CHEYALI ASSALA.” 
-      <br style="display:block; margin:6px 0;">
-      <span style="background:#ffffffb3; padding:0.2rem 1rem; border-radius:30px; display:inline-block; font-weight:500;">
-        <i class="fas fa-arrow-right" style="color:#2563eb;"></i>  I got you — here’s a clear, step‑by‑step roadmap. Just follow one step at a time.
+      <i class="fas fa-quote-left" style="opacity:0.6;"></i>
+      Hey Nagadevi!
+      <span class="highlight">💬</span>
+      <span style="font-weight:500;">“Nijam ga radhu naku. EYLA START CHEYALI ASSALA.”</span>
+      <span class="arrow-msg">
+        <i class="fas fa-arrow-right" style="color:#2563eb;"></i> I got you — here’s a clear, step‑by‑step roadmap. Just follow one step at a time.
       </span>
     </p>
   </div>
 
-  <!-- ROADMAP TITLE -->
+  <!-- roadmap title -->
   <div class="roadmap-title">
-    <i class="fas fa-route"></i> 
+    <i class="fas fa-route"></i>
     <span>SQL · start to confident</span>
   </div>
 
-  <!-- 6 steps grid -->
+  <!-- 6 steps -->
   <div class="grid">
     <div class="step">
       <div class="num">1</div>
@@ -317,7 +387,7 @@
     </div>
   </div>
 
-  <!-- extra tips / resources -->
+  <!-- extra tips -->
   <div class="extra-tips">
     <h4><i class="fas fa-lightbulb"></i> Quick tips to stay on track</h4>
     <div class="tip-list">
@@ -327,13 +397,13 @@
       <span><i class="fas fa-book"></i> W3Schools</span>
       <span><i class="fas fa-brain"></i> Practice daily 20 min</span>
     </div>
-    <div style="margin-top: 1.2rem; background: #e6f0fa; border-radius: 1.5rem; padding: 0.5rem 1.5rem; display: inline-block;">
-      <i class="fas fa-thumbs-up" style="color:#2563eb;"></i> 
-      <span style="font-weight:500;">“Don’t memorize — understand the logic.”</span>
+    <div style="margin-top: 1.2rem; background: #e6f0fa; border-radius: 2rem; padding: 0.4rem 1.8rem; display: inline-block; font-weight: 500;">
+      <i class="fas fa-thumbs-up" style="color:#2563eb;"></i>
+      “Don’t memorize — understand the logic.”
     </div>
   </div>
 
-  <!-- small encouragement + deploy surprise -->
+  <!-- footer with surprise -->
   <div class="footer-note">
     <span><i class="fas fa-heart" style="color:#f97316;"></i> You got this, Nagadevi!</span>
     <span><i class="fas fa-code"></i> start with SELECT * FROM world;</span>
@@ -342,69 +412,39 @@
 </div>
 
 <script>
-  (function(){
-    // Extra surprise for Nagadevi : alert + confetti effect (simple)
+  (function() {
     const surpriseBtn = document.getElementById('surpriseBtn');
     if (surpriseBtn) {
-      surpriseBtn.addEventListener('click', function(e){
+      surpriseBtn.addEventListener('click', function(e) {
         e.preventDefault();
-        // show a playful message
         alert("🎉 Nagadevi! You're already one step ahead — just by opening this page. \n\nHere's your SQL mantra: \n'SELECT practice FROM daily;' \n\nYou will learn, I believe in you! ❤️");
-        // optional: quick visual spark
-        document.body.style.transition = '0.2s';
-        document.body.style.background = '#e6f0ff';
-        setTimeout(() => document.body.style.background = '#f8faff', 500);
+        // quick spark
+        document.body.style.transition = 'background 0.3s';
+        document.body.style.background = '#dceaff';
+        setTimeout(() => document.body.style.background = '#f2f7ff', 500);
       });
     }
 
-    // optional hover effect on steps (just for fun)
-    const steps = document.querySelectorAll('.step');
-    steps.forEach((step, idx) => {
+    // hover micro-interaction
+    document.querySelectorAll('.step').forEach(step => {
       step.addEventListener('mouseenter', function() {
-        // subtle glow
-        this.style.borderColor = '#2563eb';
+        this.style.borderColor = '#3b7bdd';
       });
       step.addEventListener('mouseleave', function() {
-        this.style.borderColor = '#eef2f8';
+        this.style.borderColor = '#eaf0f8';
       });
     });
 
-    // year footer (optional)
-    const yearSpan = document.createElement('span');
-    yearSpan.style.fontSize = '0.8rem';
-    yearSpan.style.opacity = '0.6';
-    yearSpan.textContent = ' · 2026';
+    // year
     const footer = document.querySelector('.footer-note');
     if (footer) {
-      // insert year after the last span
-      const lastSpan = footer.querySelector('span:last-child');
-      if (lastSpan) {
-        // just append it
-        const yr = document.createElement('span');
-        yr.textContent = ' · 2026';
-        yr.style.fontSize = '0.75rem';
-        yr.style.opacity = '0.6';
-        footer.appendChild(yr);
-      }
+      const yr = document.createElement('span');
+      yr.textContent = ' · 2026';
+      yr.style.fontSize = '0.8rem';
+      yr.style.opacity = '0.6';
+      footer.appendChild(yr);
     }
   })();
 </script>
-
-<!-- tiny extra inline style for "surprise" feeling -->
-<style>
-  .step .num {
-    background: #dde9fc;
-  }
-  .btn-cta:active {
-    transform: scale(0.96);
-  }
-  .greeting h1 i {
-    animation: twinkle 2s infinite alternate;
-  }
-  @keyframes twinkle {
-    0% { opacity: 0.7; transform: scale(0.95); }
-    100% { opacity: 1; transform: scale(1.1); }
-  }
-</style>
 </body>
 </html>
