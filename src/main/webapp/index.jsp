@@ -542,7 +542,7 @@
             A Journey Worth Remembering
         </div>
 
-        <h1>PRANAY</h1>
+        <h1>PRANAY KUMAR PAMPANA</h1>
 
         <p class="hero-subtitle">
             From two college students dreaming about NITs & IITs
