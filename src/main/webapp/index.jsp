@@ -567,7 +567,7 @@
 
     <div class="section-title">
 
-        <h2>Your Journey</h2>
+        <h2>Yours Journey</h2>
 
         <p>
             Every chapter made you stronger.
