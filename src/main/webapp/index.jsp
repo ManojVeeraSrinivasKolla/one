@@ -1,196 +1,349 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nagadevi · SQL</title>
+  <title>Pranay — Your Journey</title>
+
   <style>
-    /* reset + base */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
+
     body {
-      background: linear-gradient(145deg, #f2f7ff 0%, #e6effa 100%);
       min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Segoe UI', system-ui, -apple-system, Roboto, sans-serif;
-      padding: 1.5rem;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background:
+        radial-gradient(circle at top left, #dbeafe 0, transparent 35%),
+        radial-gradient(circle at bottom right, #ede9fe 0, transparent 35%),
+        #f8fafc;
+      color: #172033;
+      padding: 40px 20px;
     }
-    .card {
-      max-width: 820px;
-      width: 100%;
-      background: rgba(255,255,255,0.88);
-      backdrop-filter: blur(3px);
-      border-radius: 3.5rem;
-      box-shadow: 0 40px 80px -20px rgba(0, 30, 70, 0.25);
-      padding: 3rem 2.8rem;
-      border: 1px solid rgba(255,255,255,0.5);
-      transition: all 0.2s;
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .hero {
       text-align: center;
-    }
-    /* large nagadevi */
-    .name {
-      font-size: 3.6rem;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      background: linear-gradient(135deg, #0b2b5c, #2563eb);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      margin-bottom: 1.2rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-family: 'Segoe UI', 'Poppins', system-ui, sans-serif;
-    }
-    .name i {
-      -webkit-text-fill-color: #f97316;
-      font-size: 3rem;
-      animation: pulse 2.4s infinite ease-in-out;
+      padding: 45px 25px 35px;
     }
 
-    /* main message – exactly the text you wanted */
-    .msg {
-      background: #f0f8ff;
-      border-radius: 2.8rem 2.8rem 2.8rem 1.2rem;
-      padding: 2.2rem 2.4rem;
-      margin: 1.8rem 0 2rem 0;
-      border-left: 10px solid #2563eb;
-      box-shadow: 0 6px 20px rgba(37,99,235,0.06);
+    .hero .small {
+      color: #64748b;
+      font-size: 0.95rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
     }
-    .msg p {
-      font-size: 1.8rem;
+
+    .hero h1 {
+      font-size: clamp(2.8rem, 8vw, 5.5rem);
+      color: #172554;
+      letter-spacing: -2px;
+      margin-bottom: 10px;
+    }
+
+    .hero h2 {
+      font-size: clamp(1.1rem, 3vw, 1.5rem);
+      color: #475569;
       font-weight: 500;
-      color: #0a1f3b;
-      line-height: 1.6;
-      word-break: break-word;
     }
-    .msg .highlight {
-      background: #fde68a;
-      padding: 0.1rem 1.2rem;
-      border-radius: 60px;
-      font-weight: 600;
-      display: inline-block;
-      color: #1e293b;
+
+    .intro {
+      background: white;
+      border-radius: 28px;
+      padding: 32px;
+      box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
+      text-align: center;
+      margin-bottom: 35px;
     }
-    .msg .question {
-      display: inline-block;
-      background: #ffffffcc;
-      padding: 0.2rem 1.6rem;
-      border-radius: 60px;
-      font-weight: 600;
-      color: #0b2b5c;
-      border: 1px solid rgba(37,99,235,0.1);
-      backdrop-filter: blur(2px);
-      margin-top: 0.2rem;
+
+    .intro p {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      color: #334155;
     }
-    .msg .question i {
+
+    .timeline {
+      position: relative;
+      margin: 20px 0 45px;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 28px;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: #cbd5e1;
+    }
+
+    .step {
+      position: relative;
+      padding-left: 75px;
+      margin-bottom: 28px;
+    }
+
+    .dot {
+      position: absolute;
+      left: 14px;
+      top: 8px;
+      width: 31px;
+      height: 31px;
+      border-radius: 50%;
+      background: #2563eb;
+      border: 6px solid #dbeafe;
+      z-index: 1;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.94);
+      border: 1px solid #e2e8f0;
+      border-radius: 24px;
+      padding: 26px 28px;
+      box-shadow: 0 12px 35px rgba(15, 23, 42, 0.06);
+    }
+
+    .year {
       color: #2563eb;
-      margin-right: 8px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 7px;
     }
 
-    /* subtle extra: friendly line */
-    .foot-note {
-      margin-top: 2.2rem;
-      color: #335584;
-      font-size: 1rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 0.8rem;
-      flex-wrap: wrap;
-      border-top: 1px solid #dce5f0;
-      padding-top: 1.8rem;
+    .card h3 {
+      font-size: 1.45rem;
+      color: #172554;
+      margin-bottom: 10px;
     }
-    .foot-note i {
-      color: #f97316;
+
+    .card p {
+      color: #475569;
+      line-height: 1.75;
+      font-size: 1.05rem;
     }
-    .btn-glow {
-      background: #0b2b5c;
+
+    .highlight {
+      color: #1d4ed8;
+      font-weight: 700;
+    }
+
+    .final {
+      background: linear-gradient(135deg, #172554, #1e40af);
       color: white;
-      border: none;
-      padding: 0.6rem 2rem;
-      border-radius: 60px;
-      font-weight: 600;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: 0.15s;
-      box-shadow: 0 4px 12px rgba(11,43,92,0.15);
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .btn-glow:hover {
-      background: #1a3f73;
-      transform: scale(1.03);
-    }
-    .btn-glow:active {
-      transform: scale(0.96);
+      border-radius: 32px;
+      padding: 42px 32px;
+      text-align: center;
+      box-shadow: 0 25px 60px rgba(30, 64, 175, 0.25);
     }
 
-    @keyframes pulse {
-      0% { transform: scale(0.95); opacity: 0.8; }
-      50% { transform: scale(1.1); opacity: 1; }
-      100% { transform: scale(0.95); opacity: 0.8; }
+    .final h2 {
+      font-size: 2rem;
+      margin-bottom: 18px;
+    }
+
+    .final p {
+      max-width: 700px;
+      margin: auto;
+      font-size: 1.12rem;
+      line-height: 1.9;
+      color: #e0e7ff;
+    }
+
+    .signature {
+      margin-top: 30px;
+      font-size: 1.15rem;
+      color: white;
+      font-weight: 600;
+    }
+
+    .heart {
+      font-size: 1.5rem;
+      margin-top: 18px;
     }
 
     @media (max-width: 600px) {
-      .card { padding: 2rem 1.2rem; }
-      .name { font-size: 2.8rem; }
-      .msg p { font-size: 1.4rem; }
+      body {
+        padding: 20px 12px;
+      }
+
+      .intro,
+      .card,
+      .final {
+        padding: 24px 20px;
+      }
+
+      .timeline::before {
+        left: 21px;
+      }
+
+      .step {
+        padding-left: 55px;
+      }
+
+      .dot {
+        left: 7px;
+      }
     }
   </style>
 </head>
+
 <body>
+  <main class="container">
 
-<div class="card">
-  <!-- NAGADEVI heading -->
-  <div class="name">
-    <i class="fas fa-star"></i> NAGADEVI
-  </div>
+    <section class="hero">
+      <div class="small">A journey worth remembering</div>
+      <h1>Pranay</h1>
+      <h2>From Tirumala Junior College to Zenskar</h2>
+    </section>
 
-  <!-- the only message you want – exactly as you wrote -->
-  <div class="msg">
-    <p>
-      <span class="highlight">💬</span>
-      “Nijam ga radhu naku. EYLA START CHEYALI ASSALA.”
-      <br />
-      <span class="question">
-        <i class="fas fa-arrow-right"></i> NAGADEVI PLEASE CHEYPPU. HOW TO LEARN SQL.
-      </span>
-    </p>
-  </div>
+    <section class="intro">
+      <p>
+        Bro, this is not just about a job.
+        This is about remembering the journey, the conversations,
+        the hard work, and the person who inspired me to keep trying.
+      </p>
+    </section>
 
-  <!-- tiny extra, just for warmth (no extra content) -->
-  <div class="foot-note">
-    <i class="fas fa-heart" style="color:#f97316;"></i>
-    <span style="font-weight:400;">you got this</span>
-    <button class="btn-glow" id="surpriseBtn"><i class="fas fa-gift"></i> ✨</button>
-  </div>
-</div>
+    <section class="timeline">
 
-<!-- FontAwesome (free) -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+      <div class="step">
+        <div class="dot"></div>
+        <div class="card">
+          <div class="year">Intermediate</div>
+          <h3>Tirumala Junior College</h3>
+          <p>
+            We met during our intermediate days at
+            <span class="highlight">Tirumala Junior College</span>.
+            We exchanged so many thoughts about our future,
+            discussed which colleges we should join, and dreamed big.
+            Our aim was clear — <span class="highlight">NITs and IITs</span>.
+          </p>
+        </div>
+      </div>
 
-<script>
-  (function() {
-    const btn = document.getElementById('surpriseBtn');
-    if (btn) {
-      btn.addEventListener('click', function(e) {
-        e.preventDefault();
-        alert("✨ Nagadevi! \n\nJust start with SELECT * FROM world; \nOne step at a time. You'll learn! ❤️");
-        // subtle background flash
-        document.body.style.transition = 'background 0.2s';
-        document.body.style.background = '#dceaff';
-        setTimeout(() => document.body.style.background = '', 400);
-      });
-    }
-  })();
-</script>
+      <div class="step">
+        <div class="dot"></div>
+        <div class="card">
+          <div class="year">The First Setback</div>
+          <h3>Dreams changed, but the journey continued</h3>
+          <p>
+            We prepared for EAMCET with big hopes.
+            Unfortunately, neither of us got the rank we expected,
+            and the NIT/IIT dream did not happen the way we imagined.
+            But you did not let that disappointment stop you.
+          </p>
+        </div>
+      </div>
 
+      <div class="step">
+        <div class="dot"></div>
+        <div class="card">
+          <div class="year">LPU</div>
+          <h3>A new beginning</h3>
+          <p>
+            You joined <span class="highlight">Lovely Professional University (LPU)</span>
+            and started a completely new chapter.
+            Instead of looking back at what didn't happen,
+            you focused on what you could build from there.
+          </p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="dot"></div>
+        <div class="card">
+          <div class="year">B.Tech · 2 Years of Hard Work</div>
+          <h3>You created your own opportunity</h3>
+          <p>
+            In just two years of tremendous hard work during B.Tech,
+            you pushed yourself forward and built strong skills.
+            Your consistency and determination started showing results.
+          </p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="dot"></div>
+        <div class="card">
+          <div class="year">3rd Year</div>
+          <h3>8 LPA — Utrade</h3>
+          <p>
+            Then came the moment that really inspired me:
+            in your <span class="highlight">3rd year</span>,
+            you cracked an <span class="highlight">8 LPA job at Utrade</span>.
+            That was huge, bro.
+            You showed me that your college name or the setbacks at the beginning
+            don't decide where you can reach.
+          </p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="dot"></div>
+        <div class="card">
+          <div class="year">Your Impact on Me</div>
+          <h3>You made me believe I could do it too</h3>
+          <p>
+            Your training, guidance, and motivation inspired me to seriously
+            try for a software job.
+            Because of the encouragement you gave me,
+            I started believing in myself and kept working toward my goal.
+            Eventually, <span class="highlight">I cracked Cognizant</span>.
+            I genuinely want to thank you for being one of the reasons
+            I started pushing myself in this direction.
+          </p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="dot"></div>
+        <div class="card">
+          <div class="year">Another Milestone</div>
+          <h3>Utrade → Zenskar</h3>
+          <p>
+            And then you moved from your previous company to
+            <span class="highlight">Zenskar</span>.
+            Another great step forward, bro.
+            Watching you continue to grow after every stage has genuinely
+            been inspiring.
+          </p>
+        </div>
+      </div>
+
+    </section>
+
+    <section class="final">
+      <h2>Thank You, Bro ❤️</h2>
+      <p>
+        From the conversations we had in intermediate about NITs and IITs,
+        to the unexpected turns after EAMCET, to LPU, B.Tech,
+        an 8 LPA job in your 3rd year, and now Zenskar —
+        your journey is something worth being proud of.
+        <br><br>
+        You didn't just build your own career.
+        Somewhere along the way, you also gave me the motivation
+        to build mine.
+        <br><br>
+        <strong>Great job, man. Keep going. This is only another chapter.</strong>
+      </p>
+
+      <div class="signature">
+        Yours faithfully,<br />
+        Srinivas Kolla
+      </div>
+
+      <div class="heart">❤️</div>
+    </section>
+
+  </main>
 </body>
 </html>
