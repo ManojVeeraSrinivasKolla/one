@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Pranay — A Journey That Inspired Me</title>
+    <title>Pranay — A Journey That Inspired Mee</title>
 
     <style>
 
