@@ -1,349 +1,943 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pranay — Your Journey</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <title>Pranay — A Journey That Inspired Me</title>
 
-    body {
-      min-height: 100vh;
-      font-family: "Segoe UI", Arial, sans-serif;
-      background:
-        radial-gradient(circle at top left, #dbeafe 0, transparent 35%),
-        radial-gradient(circle at bottom right, #ede9fe 0, transparent 35%),
-        #f8fafc;
-      color: #172033;
-      padding: 40px 20px;
-    }
+    <style>
 
-    .container {
-      max-width: 900px;
-      margin: auto;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    .hero {
-      text-align: center;
-      padding: 45px 25px 35px;
-    }
+        html {
+            scroll-behavior: smooth;
+        }
 
-    .hero .small {
-      color: #64748b;
-      font-size: 0.95rem;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      margin-bottom: 14px;
-    }
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            background:
+                radial-gradient(circle at top left, #312e81, transparent 35%),
+                radial-gradient(circle at bottom right, #581c87, transparent 35%),
+                #050816;
+            color: white;
+            overflow-x: hidden;
+        }
 
-    .hero h1 {
-      font-size: clamp(2.8rem, 8vw, 5.5rem);
-      color: #172554;
-      letter-spacing: -2px;
-      margin-bottom: 10px;
-    }
+        /* =========================
+           BACKGROUND PARTICLES
+        ========================== */
 
-    .hero h2 {
-      font-size: clamp(1.1rem, 3vw, 1.5rem);
-      color: #475569;
-      font-weight: 500;
-    }
+        .particles {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 0;
+        }
 
-    .intro {
-      background: white;
-      border-radius: 28px;
-      padding: 32px;
-      box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
-      text-align: center;
-      margin-bottom: 35px;
-    }
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.6;
+            animation: float 8s infinite ease-in-out;
+        }
 
-    .intro p {
-      font-size: 1.2rem;
-      line-height: 1.8;
-      color: #334155;
-    }
+        .particle:nth-child(1) {
+            left: 10%;
+            top: 20%;
+            animation-delay: 0s;
+        }
 
-    .timeline {
-      position: relative;
-      margin: 20px 0 45px;
-    }
+        .particle:nth-child(2) {
+            left: 25%;
+            top: 70%;
+            animation-delay: 2s;
+        }
 
-    .timeline::before {
-      content: "";
-      position: absolute;
-      left: 28px;
-      top: 0;
-      bottom: 0;
-      width: 3px;
-      background: #cbd5e1;
-    }
+        .particle:nth-child(3) {
+            left: 45%;
+            top: 30%;
+            animation-delay: 1s;
+        }
 
-    .step {
-      position: relative;
-      padding-left: 75px;
-      margin-bottom: 28px;
-    }
+        .particle:nth-child(4) {
+            left: 70%;
+            top: 60%;
+            animation-delay: 3s;
+        }
 
-    .dot {
-      position: absolute;
-      left: 14px;
-      top: 8px;
-      width: 31px;
-      height: 31px;
-      border-radius: 50%;
-      background: #2563eb;
-      border: 6px solid #dbeafe;
-      z-index: 1;
-    }
+        .particle:nth-child(5) {
+            left: 85%;
+            top: 15%;
+            animation-delay: 4s;
+        }
 
-    .card {
-      background: rgba(255, 255, 255, 0.94);
-      border: 1px solid #e2e8f0;
-      border-radius: 24px;
-      padding: 26px 28px;
-      box-shadow: 0 12px 35px rgba(15, 23, 42, 0.06);
-    }
+        .particle:nth-child(6) {
+            left: 60%;
+            top: 85%;
+            animation-delay: 2s;
+        }
 
-    .year {
-      color: #2563eb;
-      font-weight: 700;
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      margin-bottom: 7px;
-    }
+        @keyframes float {
 
-    .card h3 {
-      font-size: 1.45rem;
-      color: #172554;
-      margin-bottom: 10px;
-    }
+            0%, 100% {
+                transform: translateY(0) scale(1);
+            }
 
-    .card p {
-      color: #475569;
-      line-height: 1.75;
-      font-size: 1.05rem;
-    }
+            50% {
+                transform: translateY(-50px) scale(1.5);
+            }
+        }
 
-    .highlight {
-      color: #1d4ed8;
-      font-weight: 700;
-    }
+        /* =========================
+           HERO
+        ========================== */
 
-    .final {
-      background: linear-gradient(135deg, #172554, #1e40af);
-      color: white;
-      border-radius: 32px;
-      padding: 42px 32px;
-      text-align: center;
-      box-shadow: 0 25px 60px rgba(30, 64, 175, 0.25);
-    }
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px 20px;
+            position: relative;
+            z-index: 1;
+        }
 
-    .final h2 {
-      font-size: 2rem;
-      margin-bottom: 18px;
-    }
+        .hero-content {
+            max-width: 900px;
+            animation: heroAppear 1.5s ease forwards;
+        }
 
-    .final p {
-      max-width: 700px;
-      margin: auto;
-      font-size: 1.12rem;
-      line-height: 1.9;
-      color: #e0e7ff;
-    }
+        @keyframes heroAppear {
 
-    .signature {
-      margin-top: 30px;
-      font-size: 1.15rem;
-      color: white;
-      font-weight: 600;
-    }
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
 
-    .heart {
-      font-size: 1.5rem;
-      margin-top: 18px;
-    }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-    @media (max-width: 600px) {
-      body {
-        padding: 20px 12px;
-      }
+        .small-title {
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            font-size: 14px;
+            color: #c4b5fd;
+            margin-bottom: 20px;
+        }
 
-      .intro,
-      .card,
-      .final {
-        padding: 24px 20px;
-      }
+        .hero h1 {
+            font-size: clamp(4rem, 10vw, 8rem);
+            font-weight: 800;
+            line-height: 0.9;
+            background: linear-gradient(
+                90deg,
+                #ffffff,
+                #c4b5fd,
+                #67e8f9,
+                #ffffff
+            );
+            background-size: 300%;
+            -webkit-background-clip: text;
+            color: transparent;
+            animation: gradientMove 6s infinite linear;
+        }
 
-      .timeline::before {
-        left: 21px;
-      }
+        @keyframes gradientMove {
 
-      .step {
-        padding-left: 55px;
-      }
+            0% {
+                background-position: 0%;
+            }
 
-      .dot {
-        left: 7px;
-      }
-    }
-  </style>
+            100% {
+                background-position: 300%;
+            }
+        }
+
+        .hero-subtitle {
+            margin-top: 35px;
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            color: #e2e8f0;
+            line-height: 1.7;
+        }
+
+        .scroll {
+            margin-top: 70px;
+            color: #a5b4fc;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(12px);
+            }
+        }
+
+        /* =========================
+           MAIN
+        ========================== */
+
+        .container {
+            width: min(1100px, 92%);
+            margin: auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-title h2 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+        }
+
+        .section-title p {
+            margin-top: 15px;
+            color: #a5b4fc;
+            font-size: 1.1rem;
+        }
+
+        /* =========================
+           TIMELINE
+        ========================== */
+
+        .timeline {
+            position: relative;
+            padding: 20px 0 100px;
+        }
+
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(
+                to bottom,
+                #8b5cf6,
+                #06b6d4,
+                #ec4899,
+                #8b5cf6
+            );
+            transform: translateX(-50%);
+            box-shadow: 0 0 20px #8b5cf6;
+        }
+
+        .journey {
+            width: 50%;
+            padding: 20px 50px;
+            position: relative;
+        }
+
+        .journey:nth-child(odd) {
+            margin-left: 0;
+            text-align: right;
+        }
+
+        .journey:nth-child(even) {
+            margin-left: 50%;
+        }
+
+        .dot {
+            position: absolute;
+            top: 35px;
+            width: 24px;
+            height: 24px;
+            background: #050816;
+            border: 4px solid #a78bfa;
+            border-radius: 50%;
+            box-shadow: 0 0 20px #8b5cf6;
+            z-index: 2;
+        }
+
+        .journey:nth-child(odd) .dot {
+            right: -12px;
+        }
+
+        .journey:nth-child(even) .dot {
+            left: -12px;
+        }
+
+        .card {
+            padding: 30px;
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 25px;
+            background: rgba(255,255,255,0.07);
+            backdrop-filter: blur(15px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+            transition: 0.4s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: #a78bfa;
+            box-shadow:
+                0 25px 70px rgba(139,92,246,0.25);
+        }
+
+        .number {
+            display: inline-flex;
+            width: 45px;
+            height: 45px;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #7c3aed, #06b6d4);
+            font-weight: bold;
+            margin-bottom: 18px;
+        }
+
+        .card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: #cbd5e1;
+            line-height: 1.8;
+            font-size: 1.02rem;
+        }
+
+        .highlight {
+            color: #67e8f9;
+            font-weight: 700;
+        }
+
+        /* =========================
+           ACHIEVEMENT
+        ========================== */
+
+        .achievement {
+            margin: 80px auto;
+            padding: 60px 30px;
+            text-align: center;
+            border-radius: 35px;
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(124,58,237,0.25),
+                    rgba(6,182,212,0.15)
+                );
+            border: 1px solid rgba(255,255,255,0.15);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.3);
+        }
+
+        .achievement h2 {
+            font-size: clamp(2rem, 5vw, 4rem);
+            margin-bottom: 20px;
+        }
+
+        .salary {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 900;
+            background: linear-gradient(90deg, #facc15, #fb7185);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .achievement p {
+            max-width: 750px;
+            margin: 20px auto 0;
+            color: #cbd5e1;
+            font-size: 1.15rem;
+            line-height: 1.8;
+        }
+
+        /* =========================
+           LETTER
+        ========================== */
+
+        .letter {
+            margin: 100px auto;
+            max-width: 850px;
+            padding: 55px;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 30px;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.3);
+        }
+
+        .letter h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 35px;
+        }
+
+        .letter p {
+            color: #dbeafe;
+            line-height: 2;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        .letter .name {
+            color: #67e8f9;
+            font-weight: 700;
+        }
+
+        /* =========================
+           FINAL MESSAGE
+        ========================== */
+
+        .final {
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .final-content {
+            max-width: 850px;
+        }
+
+        .heart {
+            font-size: 4rem;
+            animation: heartbeat 1.5s infinite;
+        }
+
+        @keyframes heartbeat {
+
+            0%, 100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.25);
+            }
+        }
+
+        .final h2 {
+            margin-top: 25px;
+            font-size: clamp(2.5rem, 7vw, 5rem);
+            background: linear-gradient(
+                90deg,
+                #f9a8d4,
+                #c4b5fd,
+                #67e8f9
+            );
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .final p {
+            margin-top: 25px;
+            font-size: 1.25rem;
+            color: #cbd5e1;
+            line-height: 2;
+        }
+
+        .signature {
+            margin-top: 50px;
+            font-size: 1.2rem;
+            color: #a5b4fc;
+        }
+
+        .signature strong {
+            display: block;
+            margin-top: 10px;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        /* =========================
+           MOBILE
+        ========================== */
+
+        @media (max-width: 700px) {
+
+            .timeline::before {
+                left: 15px;
+            }
+
+            .journey,
+            .journey:nth-child(even),
+            .journey:nth-child(odd) {
+                width: 100%;
+                margin-left: 0;
+                padding-left: 55px;
+                padding-right: 0;
+                text-align: left;
+            }
+
+            .journey .dot,
+            .journey:nth-child(odd) .dot,
+            .journey:nth-child(even) .dot {
+                left: 3px;
+                right: auto;
+            }
+
+            .card {
+                padding: 25px;
+            }
+
+            .letter {
+                padding: 30px 22px;
+            }
+
+            .hero {
+                min-height: 90vh;
+            }
+        }
+
+    </style>
 </head>
 
 <body>
-  <main class="container">
 
-    <section class="hero">
-      <div class="small">A journey worth remembering</div>
-      <h1>Pranay</h1>
-      <h2>From Tirumala Junior College to Zenskar</h2>
+<!-- Floating background particles -->
+
+<div class="particles">
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+</div>
+
+
+<!-- =========================
+     HERO
+========================== -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="small-title">
+            A Journey Worth Remembering
+        </div>
+
+        <h1>PRANAY</h1>
+
+        <p class="hero-subtitle">
+            From two college students dreaming about NITs & IITs
+            <br>
+            to two software professionals chasing bigger dreams.
+        </p>
+
+        <div class="scroll">
+            ↓ &nbsp; Scroll to see your journey &nbsp; ↓
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     JOURNEY
+========================== -->
+
+<main class="container">
+
+    <div class="section-title">
+
+        <h2>Your Journey</h2>
+
+        <p>
+            Every chapter made you stronger.
+            Every setback became another step forward.
+        </p>
+
+    </div>
+
+
+    <div class="timeline">
+
+
+        <!-- 01 -->
+
+        <div class="journey">
+
+            <div class="dot"></div>
+
+            <div class="card">
+
+                <span class="number">01</span>
+
+                <h3>🎓 Tirumala Junior College</h3>
+
+                <p>
+                    This is where our journey started.
+                    We met during our intermediate days and
+                    exchanged countless thoughts about our future.
+                    We talked about which colleges to join,
+                    what careers to choose and most importantly,
+                    about our dreams.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- 02 -->
+
+        <div class="journey">
+
+            <div class="dot"></div>
+
+            <div class="card">
+
+                <span class="number">02</span>
+
+                <h3>🎯 NITs & IITs — The Dream</h3>
+
+                <p>
+                    Like every ambitious student, we aimed high.
+                    NITs and IITs were the dream.
+                    We imagined ourselves entering those campuses
+                    and building a completely different future.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- 03 -->
+
+        <div class="journey">
+
+            <div class="dot"></div>
+
+            <div class="card">
+
+                <span class="number">03</span>
+
+                <h3>💭 The EAMCET Chapter</h3>
+
+                <p>
+                    Unfortunately, things didn't go exactly
+                    according to our plans.
+                    We didn't qualify for the NIT/IIT dream,
+                    and even after preparing for EAMCET,
+                    we didn't get the ranks we expected.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- 04 -->
+
+        <div class="journey">
+
+            <div class="dot"></div>
+
+            <div class="card">
+
+                <span class="number">04</span>
+
+                <h3>🎓 A New Beginning — LPU</h3>
+
+                <p>
+                    But you didn't allow that setback to define you.
+                    You joined <span class="highlight">LPU</span>
+                    and started a completely new chapter.
+                    Instead of looking back,
+                    you decided to move forward.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- 05 -->
+
+        <div class="journey">
+
+            <div class="dot"></div>
+
+            <div class="card">
+
+                <span class="number">05</span>
+
+                <h3>💪 Two Years of Hard Work</h3>
+
+                <p>
+                    During B.Tech, you showed what dedication
+                    actually means.
+                    Within just two years,
+                    you transformed yourself through
+                    consistent learning, training and hard work.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- 06 -->
+
+        <div class="journey">
+
+            <div class="dot"></div>
+
+            <div class="card">
+
+                <span class="number">06</span>
+
+                <h3>🚀 8 LPA — UTRADE</h3>
+
+                <p>
+                    And then came the moment that proved
+                    your hard work was worth it.
+                    You cracked an
+                    <span class="highlight">8 LPA job at UTRADE</span>
+                    while you were still in your
+                    <span class="highlight">3rd year</span>.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- 07 -->
+
+        <div class="journey">
+
+            <div class="dot"></div>
+
+            <div class="card">
+
+                <span class="number">07</span>
+
+                <h3>🔥 You Became My Inspiration</h3>
+
+                <p>
+                    Your training and motivation made me believe
+                    that I could also crack a software job.
+                    Watching your journey pushed me to work harder
+                    and seriously pursue my own career.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- 08 -->
+
+        <div class="journey">
+
+            <div class="dot"></div>
+
+            <div class="card">
+
+                <span class="number">08</span>
+
+                <h3>💻 Cognizant</h3>
+
+                <p>
+                    Because of the confidence and motivation
+                    you gave me, I pushed myself and eventually
+                    cracked a software job at
+                    <span class="highlight">Cognizant</span>.
+                    I'll always remember that contribution, bro.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         ACHIEVEMENT
+    ========================== -->
+
+    <section class="achievement">
+
+        <h2>You Didn't Stop There.</h2>
+
+        <div class="salary">
+            8 LPA
+        </div>
+
+        <p>
+            From the dreams we discussed in intermediate
+            to cracking a software job in your third year —
+            your journey is something genuinely worth celebrating.
+        </p>
+
     </section>
 
-    <section class="intro">
-      <p>
-        Bro, this is not just about a job.
-        This is about remembering the journey, the conversations,
-        the hard work, and the person who inspired me to keep trying.
-      </p>
-    </section>
 
-    <section class="timeline">
+    <!-- =========================
+         NEXT CHAPTER
+    ========================== -->
 
-      <div class="step">
-        <div class="dot"></div>
-        <div class="card">
-          <div class="year">Intermediate</div>
-          <h3>Tirumala Junior College</h3>
-          <p>
-            We met during our intermediate days at
-            <span class="highlight">Tirumala Junior College</span>.
-            We exchanged so many thoughts about our future,
-            discussed which colleges we should join, and dreamed big.
-            Our aim was clear — <span class="highlight">NITs and IITs</span>.
-          </p>
-        </div>
-      </div>
+    <section class="letter">
 
-      <div class="step">
-        <div class="dot"></div>
-        <div class="card">
-          <div class="year">The First Setback</div>
-          <h3>Dreams changed, but the journey continued</h3>
-          <p>
-            We prepared for EAMCET with big hopes.
-            Unfortunately, neither of us got the rank we expected,
-            and the NIT/IIT dream did not happen the way we imagined.
-            But you did not let that disappointment stop you.
-          </p>
-        </div>
-      </div>
+        <h2>🌱 The Next Chapter</h2>
 
-      <div class="step">
-        <div class="dot"></div>
-        <div class="card">
-          <div class="year">LPU</div>
-          <h3>A new beginning</h3>
-          <p>
-            You joined <span class="highlight">Lovely Professional University (LPU)</span>
-            and started a completely new chapter.
-            Instead of looking back at what didn't happen,
-            you focused on what you could build from there.
-          </p>
-        </div>
-      </div>
+        <p>
+            After everything you achieved,
+            you took another step forward and moved from
+            your previous company to
+            <span class="name">Quantizer</span>.
+        </p>
 
-      <div class="step">
-        <div class="dot"></div>
-        <div class="card">
-          <div class="year">B.Tech · 2 Years of Hard Work</div>
-          <h3>You created your own opportunity</h3>
-          <p>
-            In just two years of tremendous hard work during B.Tech,
-            you pushed yourself forward and built strong skills.
-            Your consistency and determination started showing results.
-          </p>
-        </div>
-      </div>
+        <p>
+            Great move, man.
+            You have already shown that when you decide
+            to learn something and work for it,
+            you can completely change your situation.
+        </p>
 
-      <div class="step">
-        <div class="dot"></div>
-        <div class="card">
-          <div class="year">3rd Year</div>
-          <h3>8 LPA — Utrade</h3>
-          <p>
-            Then came the moment that really inspired me:
-            in your <span class="highlight">3rd year</span>,
-            you cracked an <span class="highlight">8 LPA job at Utrade</span>.
-            That was huge, bro.
-            You showed me that your college name or the setbacks at the beginning
-            don't decide where you can reach.
-          </p>
-        </div>
-      </div>
-
-      <div class="step">
-        <div class="dot"></div>
-        <div class="card">
-          <div class="year">Your Impact on Me</div>
-          <h3>You made me believe I could do it too</h3>
-          <p>
-            Your training, guidance, and motivation inspired me to seriously
-            try for a software job.
-            Because of the encouragement you gave me,
-            I started believing in myself and kept working toward my goal.
-            Eventually, <span class="highlight">I cracked Cognizant</span>.
-            I genuinely want to thank you for being one of the reasons
-            I started pushing myself in this direction.
-          </p>
-        </div>
-      </div>
-
-      <div class="step">
-        <div class="dot"></div>
-        <div class="card">
-          <div class="year">Another Milestone</div>
-          <h3>Utrade → Zenskar</h3>
-          <p>
-            And then you moved from your previous company to
-            <span class="highlight">Zenskar</span>.
-            Another great step forward, bro.
-            Watching you continue to grow after every stage has genuinely
-            been inspiring.
-          </p>
-        </div>
-      </div>
+        <p>
+            I genuinely hope this next chapter brings you
+            even bigger opportunities, greater success
+            and everything you've been working towards.
+        </p>
 
     </section>
 
-    <section class="final">
-      <h2>Thank You, Bro ❤️</h2>
-      <p>
-        From the conversations we had in intermediate about NITs and IITs,
-        to the unexpected turns after EAMCET, to LPU, B.Tech,
-        an 8 LPA job in your 3rd year, and now Zenskar —
-        your journey is something worth being proud of.
-        <br><br>
-        You didn't just build your own career.
-        Somewhere along the way, you also gave me the motivation
-        to build mine.
-        <br><br>
-        <strong>Great job, man. Keep going. This is only another chapter.</strong>
-      </p>
 
-      <div class="signature">
-        Yours faithfully,<br />
-        Srinivas Kolla
-      </div>
+</main>
 
-      <div class="heart">❤️</div>
-    </section>
 
-  </main>
+<!-- =========================
+     FINAL
+========================== -->
+
+<section class="final">
+
+    <div class="final-content">
+
+        <div class="heart">
+            ❤️
+        </div>
+
+        <h2>Thank You, Bro.</h2>
+
+        <p>
+            You didn't just achieve something for yourself.
+            Your journey inspired someone else to believe
+            that they could do it too.
+        </p>
+
+        <p>
+            From those intermediate conversations at
+            <strong>Tirumala Junior College</strong>
+            to where we are today —
+            I'm genuinely happy that our paths crossed.
+        </p>
+
+        <p>
+            Keep going, Pranay.
+            This is only another chapter.
+            There are many more achievements waiting for you.
+            🚀
+        </p>
+
+        <div class="signature">
+
+            Yours faithfully,
+
+            <strong>
+                Srinivas Kolla
+            </strong>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    Made with respect, gratitude & friendship ❤️
+
+</footer>
+
+
+<script>
+
+    /*
+       Simple reveal animation
+       cards appear when they enter
+       the screen.
+    */
+
+    const cards = document.querySelectorAll(".card, .achievement, .letter");
+
+    const observer = new IntersectionObserver(
+
+        entries => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.style.opacity = "1";
+                    entry.target.style.transform = "translateY(0)";
+
+                }
+
+            });
+
+        },
+
+        {
+            threshold: 0.15
+        }
+
+    );
+
+
+    cards.forEach(card => {
+
+        card.style.opacity = "0";
+        card.style.transform = "translateY(40px)";
+        card.style.transition = "opacity 0.8s ease, transform 0.8s ease";
+
+        observer.observe(card);
+
+    });
+
+</script>
+
 </body>
 </html>
