@@ -1220,7 +1220,7 @@
 
             <div class="small-title">
 
-                A STORY OF AA FRIENDSHIP • COURAGE • HOPE
+                A STORY OF AAA FRIENDSHIP • COURAGE • HOPE
 
             </div>
 
