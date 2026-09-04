@@ -1368,7 +1368,7 @@
 
                         <span class="highlight">
                             Different colleges.
-                            Same connection.
+                            Same connection right.
                         </span>
 
                     </p>
