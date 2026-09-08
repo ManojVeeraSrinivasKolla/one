@@ -3,613 +3,238 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Leela Sai Venkateswara Rao Kurella — The Journey</title>
-
+<title>Kunapareddy Harinivas — The Journey</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{
-    font-family:Inter,Segoe UI,Arial,sans-serif;
-    background:#050816;
-    color:#fff;
-    overflow-x:hidden;
-    line-height:1.7;
-}
-body::before{
-    content:"";
-    position:fixed;inset:0;pointer-events:none;z-index:10;
-    background:linear-gradient(90deg,transparent 49.9%,rgba(255,255,255,.018) 50%,transparent 50.1%);
-}
-.bg{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:0}
-.orb{
-    position:absolute;border-radius:50%;filter:blur(90px);opacity:.18;
-    animation:orb 16s ease-in-out infinite alternate;
-}
-.o1{width:430px;height:430px;background:#7c3aed;left:-150px;top:-100px}
-.o2{width:380px;height:380px;background:#06b6d4;right:-120px;top:35% ;animation-delay:3s}
-.o3{width:350px;height:350px;background:#f59e0b;left:30%;bottom:-160px;animation-delay:6s}
-@keyframes orb{
-    0%{transform:translate(0,0) scale(1)}
-    50%{transform:translate(100px,-70px) scale(1.2)}
-    100%{transform:translate(-60px,90px) scale(.9)}
-}
-.stars{position:fixed;inset:0;z-index:0;pointer-events:none}
-.star{
-    position:absolute;width:3px;height:3px;border-radius:50%;background:white;
-    animation:twinkle 3s infinite ease-in-out;
-}
-@keyframes twinkle{0%,100%{opacity:.15;transform:scale(1)}50%{opacity:1;transform:scale(2)}}
-.s1{left:8%;top:15%}.s2{left:22%;top:70%;animation-delay:1s}
-.s3{left:37%;top:25%;animation-delay:2s}.s4{left:55%;top:80%;animation-delay:.5s}
-.s5{left:72%;top:18%;animation-delay:1.5s}.s6{left:91%;top:55%;animation-delay:2.5s}
-.s7{left:48%;top:50%;animation-delay:1.2s}.s8{left:82%;top:88%;animation-delay:.8s}
-
-section,.container,footer{position:relative;z-index:2}
-.hero{
-    min-height:100vh;display:flex;align-items:center;justify-content:center;
-    text-align:center;padding:70px 20px;
-}
-.hero-content{max-width:1100px;animation:heroIn 1.4s ease both}
-@keyframes heroIn{from{opacity:0;transform:translateY(60px)}to{opacity:1;transform:translateY(0)}}
-.eyebrow{
-    letter-spacing:5px;text-transform:uppercase;color:#67e8f9;
-    font-size:.8rem;font-weight:700;margin-bottom:25px;
-}
-.hero h1{
-    font-size:clamp(3rem,9vw,8.5rem);line-height:.9;font-weight:950;
-    letter-spacing:-4px;
-    background:linear-gradient(90deg,#fff,#a78bfa,#67e8f9,#fbbf24,#fff);
-    background-size:400%;
-    -webkit-background-clip:text;background-clip:text;color:transparent;
-    animation:gradient 7s linear infinite,glow 3s ease-in-out infinite alternate;
-}
-@keyframes gradient{to{background-position:400%}}
-@keyframes glow{from{filter:drop-shadow(0 0 5px rgba(103,232,249,.2))}to{filter:drop-shadow(0 0 28px rgba(167,139,250,.65))}}
-.hero .subtitle{
-    max-width:850px;margin:38px auto 0;color:#dbeafe;
-    font-size:clamp(1.05rem,2.5vw,1.45rem);
-}
-.hero .subtitle strong{color:#67e8f9}
-.scroll{
-    margin-top:65px;color:#94a3b8;font-size:.9rem;
-    animation:bounce 2s infinite;
-}
-@keyframes bounce{50%{transform:translateY(12px)}}
-
-.container{width:min(1100px,92%);margin:auto}
-.section-head{text-align:center;padding:100px 0 65px}
-.section-head .tag{
-    color:#a78bfa;text-transform:uppercase;letter-spacing:4px;font-size:.78rem;font-weight:800
-}
-.section-head h2{
-    font-size:clamp(2.3rem,6vw,4.5rem);line-height:1.05;margin-top:12px;
-    background:linear-gradient(90deg,#fff,#c4b5fd,#67e8f9);
-    -webkit-background-clip:text;background-clip:text;color:transparent;
-}
-.section-head p{color:#94a3b8;margin:18px auto 0;max-width:700px}
-
-.timeline{position:relative;padding-bottom:80px}
-.timeline::before{
-    content:"";position:absolute;left:50%;top:0;bottom:0;width:3px;
-    transform:translateX(-50%);
-    background:linear-gradient(#8b5cf6,#06b6d4,#f59e0b,#ec4899,#8b5cf6);
-    box-shadow:0 0 18px #8b5cf6;
-}
-.step{
-    width:50%;padding:25px 55px;position:relative;
-    opacity:0;transform:translateY(55px);
-    transition:opacity .9s ease,transform .9s cubic-bezier(.17,.67,.3,1.2);
-}
-.step.visible{opacity:1;transform:translateY(0)}
-.step:nth-child(odd){text-align:right}
-.step:nth-child(even){margin-left:50%}
-.dot{
-    position:absolute;top:42px;width:27px;height:27px;border-radius:50%;
-    background:#050816;border:4px solid #a78bfa;
-    box-shadow:0 0 12px #8b5cf6,0 0 32px #8b5cf6;
-    animation:pulse 2s infinite;
-}
-.step:nth-child(odd) .dot{right:-14px}
-.step:nth-child(even) .dot{left:-14px}
-@keyframes pulse{50%{box-shadow:0 0 18px #06b6d4,0 0 45px #06b6d4}}
-
-.card{
-    padding:34px;border-radius:28px;
-    border:1px solid rgba(255,255,255,.13);
-    background:linear-gradient(135deg,rgba(255,255,255,.09),rgba(255,255,255,.025));
-    backdrop-filter:blur(18px);
-    box-shadow:0 25px 70px rgba(0,0,0,.3);
-    transition:.45s ease;
-}
-.card:hover{
-    transform:translateY(-10px) scale(1.02);
-    border-color:rgba(103,232,249,.55);
-    box-shadow:0 30px 90px rgba(6,182,212,.14);
-}
-.num{
-    display:inline-flex;width:48px;height:48px;align-items:center;justify-content:center;
-    border-radius:50%;font-weight:900;margin-bottom:18px;
-    background:linear-gradient(135deg,#7c3aed,#06b6d4);
-    box-shadow:0 0 25px rgba(124,58,237,.5);
-}
-.card h3{font-size:1.55rem;margin-bottom:14px}
-.card p{color:#cbd5e1;font-size:1.02rem}
-.highlight{color:#67e8f9;font-weight:800}
-.gold{color:#fbbf24;font-weight:800}
-.pink{color:#f9a8d4;font-weight:800}
-
-.pills{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end;margin-top:20px}
-.step:nth-child(even) .pills{justify-content:flex-start}
-.pill{
-    padding:7px 13px;border:1px solid rgba(255,255,255,.15);
-    border-radius:999px;background:rgba(255,255,255,.05);
-    color:#c4b5fd;font-size:.78rem;font-weight:700;
-}
-
-.turning-point{
-    margin:110px auto;padding:85px 30px;text-align:center;
-    border-radius:42px;
-    background:radial-gradient(circle at center,rgba(124,58,237,.28),rgba(6,182,212,.07),transparent 72%);
-    border:1px solid rgba(255,255,255,.13);
-    box-shadow:0 35px 110px rgba(0,0,0,.4);
-    overflow:hidden;
-}
-.turning-point h2{font-size:clamp(2rem,5vw,4rem)}
-.big{
-    margin:20px 0 28px;font-size:clamp(2.7rem,8vw,6.5rem);
-    font-weight:950;line-height:1;
-    background:linear-gradient(90deg,#fbbf24,#f97316,#f9a8d4,#67e8f9,#a78bfa);
-    background-size:300%;-webkit-background-clip:text;background-clip:text;color:transparent;
-    animation:gradient 5s linear infinite;
-}
-.turning-point p{max-width:800px;margin:auto;color:#cbd5e1;font-size:1.15rem}
-
-.role{
-    display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin:30px 0 110px
-}
-.role-card{
-    padding:32px;border-radius:25px;background:rgba(255,255,255,.055);
-    border:1px solid rgba(255,255,255,.12);text-align:center;
-    transition:.4s ease;
-}
-.role-card:hover{transform:translateY(-8px);background:rgba(255,255,255,.08)}
-.role-icon{font-size:3rem;margin-bottom:12px}
-.role-card h3{font-size:1.35rem}
-.role-card p{color:#94a3b8;margin-top:8px}
-
-.message{
-    max-width:900px;margin:0 auto 120px;padding:60px;
-    border-radius:32px;background:linear-gradient(135deg,rgba(255,255,255,.08),rgba(255,255,255,.025));
-    border:1px solid rgba(255,255,255,.13);box-shadow:0 30px 90px rgba(0,0,0,.35);
-}
-.message h2{text-align:center;font-size:2.6rem;margin-bottom:35px}
-.message p{color:#dbeafe;font-size:1.08rem;margin-bottom:20px}
-.message .name{color:#67e8f9;font-weight:900}
-
-.final{
-    min-height:100vh;display:flex;align-items:center;justify-content:center;
-    text-align:center;padding:100px 20px;
-}
-.final-inner{max-width:950px}
-.heart{font-size:5rem;animation:heart 1.5s infinite}
-@keyframes heart{50%{transform:scale(1.25)}}
-.final h2{
-    font-size:clamp(2.7rem,8vw,6.5rem);line-height:.98;margin:25px 0;
-    background:linear-gradient(90deg,#fff,#67e8f9,#a78bfa,#fbbf24);
-    background-size:300%;-webkit-background-clip:text;background-clip:text;color:transparent;
-    animation:gradient 6s linear infinite;
-}
-.final p{font-size:1.2rem;color:#cbd5e1;max-width:800px;margin:0 auto}
-.final strong{color:#fff}
-.quote{
-    margin:55px auto 0;padding:30px;border-radius:24px;
-    border:1px solid rgba(103,232,249,.25);background:rgba(103,232,249,.04);
-    font-size:clamp(1.3rem,3vw,2rem);font-weight:800;color:#67e8f9;
-    box-shadow:0 0 50px rgba(103,232,249,.07)
-}
-.signature{margin-top:50px;color:#94a3b8}
-.signature strong{display:block;color:white;font-size:1.5rem;margin-top:6px}
-footer{text-align:center;padding:40px 20px;color:#64748b;border-top:1px solid rgba(255,255,255,.06)}
-footer strong{color:#a78bfa}
-
-/* floating particles */
-.float{
-    position:fixed;bottom:-50px;z-index:1;pointer-events:none;opacity:0;
-    animation:float 11s linear infinite;
-}
-.f1{left:8%;animation-delay:0s}.f2{left:25%;animation-delay:3s}.f3{left:53%;animation-delay:6s}.f4{left:80%;animation-delay:2s}
-@keyframes float{
-    0%{transform:translateY(0) rotate(0);opacity:0}
-    15%{opacity:.55}80%{opacity:.55}
-    100%{transform:translateY(-110vh) rotate(360deg);opacity:0}
-}
-
-/* click spark */
-.spark{position:fixed;pointer-events:none;z-index:9999;font-size:24px;animation:spark 1s ease forwards}
-@keyframes spark{
-    from{transform:translate(-50%,-50%) scale(.5);opacity:1}
-    to{transform:translate(-50%,-130px) scale(1.5);opacity:0}
-}
-
+body{font-family:Inter,Segoe UI,Arial,sans-serif;background:#030303;color:#f5f5f5;overflow-x:hidden;line-height:1.75}
+canvas{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+.content{position:relative;z-index:2}
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:60px 20px}
+.hero-inner{max-width:1200px;animation:heroIn 1.5s ease both}
+@keyframes heroIn{from{opacity:0;transform:translateY(60px) scale(.97)}to{opacity:1;transform:none}}
+.eyebrow{text-transform:uppercase;letter-spacing:7px;font-size:.75rem;color:#aaa;margin-bottom:28px;font-weight:800}
+.hero h1{font-size:clamp(3rem,9vw,9rem);line-height:.88;letter-spacing:-5px;font-weight:950;color:#fff;text-shadow:0 0 25px rgba(255,255,255,.18)}
+.hero h1 span{display:block;color:#777}
+.intro{max-width:850px;margin:45px auto 0;font-size:clamp(1.05rem,2.5vw,1.4rem);color:#aaa}
+.intro strong{color:#fff}.scroll{margin-top:70px;color:#777;font-size:.85rem;animation:bounce 2s infinite}
+@keyframes bounce{50%{transform:translateY(13px)}}
+.container{width:min(1080px,92%);margin:auto}
+.section-head{text-align:center;padding:120px 0 65px}
+.section-head .tag{font-size:.72rem;text-transform:uppercase;letter-spacing:5px;color:#777;font-weight:800}
+.section-head h2{font-size:clamp(2.3rem,6vw,4.8rem);line-height:1.03;margin-top:15px;color:#fff}
+.section-head p{max-width:720px;margin:20px auto;color:#888}
+.timeline{position:relative;padding-bottom:100px}
+.timeline:before{content:"";position:absolute;left:50%;top:0;bottom:0;width:1px;background:linear-gradient(transparent,#fff 10%,#555 50%,#fff 90%,transparent);box-shadow:0 0 18px rgba(255,255,255,.25)}
+.step{width:50%;padding:25px 55px;position:relative;opacity:0;transform:translateY(70px);transition:1s cubic-bezier(.17,.67,.3,1.2)}
+.step.show{opacity:1;transform:none}.step:nth-child(odd){text-align:right}.step:nth-child(even){margin-left:50%}
+.dot{position:absolute;top:43px;width:16px;height:16px;border-radius:50%;background:#fff;border:4px solid #030303;box-shadow:0 0 12px #fff,0 0 35px rgba(255,255,255,.6);animation:dotPulse 2.5s infinite}
+.step:nth-child(odd) .dot{right:-8px}.step:nth-child(even) .dot{left:-8px}
+@keyframes dotPulse{50%{transform:scale(1.35);box-shadow:0 0 20px #fff,0 0 50px rgba(255,255,255,.7)}}
+.card{padding:35px;border:1px solid #242424;border-radius:24px;background:linear-gradient(145deg,rgba(255,255,255,.075),rgba(255,255,255,.025));backdrop-filter:blur(14px);box-shadow:0 25px 70px rgba(0,0,0,.5);transition:.45s ease;overflow:hidden;position:relative}
+.card:after{content:"";position:absolute;inset:0;background:linear-gradient(120deg,transparent,rgba(255,255,255,.07),transparent);transform:translateX(-110%);transition:.7s}
+.card:hover:after{transform:translateX(110%)}.card:hover{transform:translateY(-10px);border-color:#666;box-shadow:0 30px 90px rgba(255,255,255,.07)}
+.number{display:inline-flex;width:45px;height:45px;border-radius:50%;align-items:center;justify-content:center;border:1px solid #777;color:#fff;font-weight:900;margin-bottom:18px}
+.card h3{font-size:1.5rem;margin-bottom:15px}.card p{color:#aaa;font-size:1.02rem}.white{color:#fff;font-weight:850}.gray{color:#ddd;font-weight:750}
+.pills{display:flex;justify-content:flex-end;gap:8px;flex-wrap:wrap;margin-top:20px}.step:nth-child(even) .pills{justify-content:flex-start}
+.pill{font-size:.72rem;padding:6px 11px;border:1px solid #333;border-radius:100px;color:#aaa;background:#0a0a0a}
+.break{min-height:70vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:100px 20px}
+.break-inner{max-width:1000px}.break small{text-transform:uppercase;letter-spacing:6px;color:#666;font-weight:800}
+.break h2{margin:25px 0;font-size:clamp(3rem,10vw,8rem);line-height:.9;font-weight:950;color:#fff;text-shadow:0 0 45px rgba(255,255,255,.2)}
+.break p{max-width:760px;margin:auto;color:#999;font-size:1.15rem}
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:40px 0 120px}
+.person{padding:35px;border:1px solid #252525;border-radius:25px;background:#080808;transition:.4s}
+.person:hover{transform:translateY(-8px);border-color:#666}.person .icon{font-size:2.7rem;margin-bottom:12px;filter:grayscale(1)}
+.person h3{font-size:1.6rem}.person .role{color:#777;margin:6px 0 18px}.person p{color:#999}.person strong{color:#fff}
+.message{max-width:900px;margin:0 auto 130px;padding:60px;border:1px solid #292929;border-radius:30px;background:rgba(255,255,255,.035);box-shadow:0 30px 100px rgba(0,0,0,.5)}
+.message h2{text-align:center;font-size:2.7rem;margin-bottom:38px}.message p{color:#b5b5b5;font-size:1.08rem;margin-bottom:22px}.message .name{color:#fff;font-weight:900}
+.final{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:120px 20px}
+.final-inner{max-width:1000px}.final .symbol{font-size:5rem;animation:float 2s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-14px)}}.final h2{font-size:clamp(3rem,9vw,7.5rem);line-height:.9;margin:25px 0;font-weight:950;color:#fff}
+.final .line{height:1px;background:#333;max-width:600px;margin:35px auto}.final p{max-width:800px;margin:auto;color:#999;font-size:1.2rem}
+.quote{margin:55px auto 0;padding:30px;border:1px solid #333;border-radius:22px;background:rgba(255,255,255,.035);font-size:clamp(1.25rem,3vw,2rem);color:#eee;font-weight:800}
+.signature{margin-top:50px;color:#666}.signature strong{display:block;color:#fff;font-size:1.45rem;margin-top:7px}
+footer{text-align:center;padding:45px 20px;border-top:1px solid #171717;color:#555}.footer strong{color:#aaa}
 @media(max-width:720px){
-    .hero h1{letter-spacing:-2px}
-    .timeline::before{left:14px}
-    .step,.step:nth-child(even),.step:nth-child(odd){
-        width:100%;margin-left:0;padding:20px 0 20px 52px;text-align:left
-    }
-    .step:nth-child(odd) .dot,.step:nth-child(even) .dot{left:1px;right:auto}
-    .pills,.step:nth-child(even) .pills{justify-content:flex-start}
-    .card{padding:25px}
-    .turning-point{padding:60px 22px}
-    .role{grid-template-columns:1fr}
-    .message{padding:35px 24px}
+.hero h1{letter-spacing:-2px}.timeline:before{left:12px}
+.step,.step:nth-child(even),.step:nth-child(odd){width:100%;margin-left:0;text-align:left;padding:20px 0 20px 48px}
+.step:nth-child(odd) .dot,.step:nth-child(even) .dot{left:5px;right:auto}.pills,.step:nth-child(even) .pills{justify-content:flex-start}
+.card{padding:26px}.compare{grid-template-columns:1fr}.message{padding:35px 24px}
 }
 </style>
 </head>
-
 <body>
+<canvas id="space"></canvas>
+<div class="content">
 
-<div class="bg">
-    <div class="orb o1"></div>
-    <div class="orb o2"></div>
-    <div class="orb o3"></div>
-</div>
-
-<div class="stars">
-    <i class="star s1"></i><i class="star s2"></i><i class="star s3"></i><i class="star s4"></i>
-    <i class="star s5"></i><i class="star s6"></i><i class="star s7"></i><i class="star s8"></i>
-</div>
-
-<div class="float f1">🚀</div>
-<div class="float f2">⭐</div>
-<div class="float f3">💪</div>
-<div class="float f4">🔥</div>
-
-<!-- HERO -->
 <section class="hero">
-    <div class="hero-content">
-        <div class="eyebrow">A Story of Courage • Persistence • Growth</div>
-
-        <h1>LEELA SAI<br>VENKATESWARA RAO<br>KURELLA</h1>
-
-        <p class="subtitle">
-            This is the story of a person who didn't let his degree,
-            the absence of placements, or years of struggle decide his future.
-            <br><br>
-            <strong>He kept moving until he created his place in IT. 🔥</strong>
-        </p>
-
-        <div class="scroll">↓ &nbsp; Scroll to experience the journey &nbsp; ↓</div>
-    </div>
+<div class="hero-inner">
+<div class="eyebrow">A Story of Friendship • Determination • Inspiration</div>
+<h1>KUNAPAREDDY<br><span>HARINIVAS</span></h1>
+<p class="intro">
+We started as two ordinary classmates.<br>
+But somewhere between <strong>COVID, unfinished exams, YouTube lectures, dreams, failure and determination</strong>,
+I began to see you differently.<br><br>
+<strong>This is the story of the friend who inspired me to dream bigger.</strong>
+</p>
+<div class="scroll">↓ &nbsp; Scroll slowly. This story deserves it. &nbsp; ↓</div>
+</div>
 </section>
 
 <main class="container">
+<div class="section-head">
+<div class="tag">Chapter One</div>
+<h2>It Started<br>Ordinarily.</h2>
+<p>We didn't know that this simple friendship would eventually become a source of inspiration.</p>
+</div>
 
-    <div class="section-head">
-        <div class="tag">The Journey</div>
-        <h2>Three Years of Struggle.<br>One Decision to Never Stop.</h2>
-        <p>
-            Some career stories begin with a campus placement.
-            This one began with patience, persistence and the courage to keep trying.
-        </p>
-    </div>
+<div class="timeline">
 
-    <div class="timeline">
+<article class="step"><div class="dot"></div><div class="card">
+<span class="number">01</span><h3>🏫 Intermediate — Just Normal Classmates</h3>
+<p>We studied Intermediate together. At that time, we didn't have a very close bond. We knew each other, talked normally, attended classes and went on with our lives.<br><br>Nothing dramatic. Nothing special. <strong class="white">Just two classmates who didn't yet know what was coming.</strong></p>
+</div></article>
 
-        <!-- 01 -->
-        <article class="step">
-            <div class="dot"></div>
-            <div class="card">
-                <span class="num">01</span>
-                <h3>🎓 B.Tech — Mechanical Engineering</h3>
-                <p>
-                    After B.Tech, your degree was in <span class="highlight">Mechanical Engineering</span>.
-                    But your dream was different.
-                    You wanted to enter the <span class="gold">IT industry</span>.
-                </p>
-                <div class="pills">
-                    <span class="pill">Mechanical</span>
-                    <span class="pill">B.Tech</span>
-                    <span class="pill">IT Dream</span>
-                </div>
-            </div>
-        </article>
+<article class="step"><div class="dot"></div><div class="card">
+<span class="number">02</span><h3>🦠 Then COVID Changed Everything</h3>
+<p>In our second year, COVID arrived. College stopped. Classes moved online. Unfortunately, we didn't really attend those online classes properly. We ended up with <span class="gray">a lot of pending exams</span>.<br><br>It was a confusing period for both of us.</p>
+</div></article>
 
-        <!-- 02 -->
-        <article class="step">
-            <div class="dot"></div>
-            <div class="card">
-                <span class="num">02</span>
-                <h3>⏳ The Difficult Three Years</h3>
-                <p>
-                    The first opportunity didn't come easily.
-                    For around <span class="pink">three years after college</span>,
-                    there was no placement that could take you where you wanted to go.
-                    But the important part is this:
-                    <br><br>
-                    <span class="highlight">You never stopped trying.</span>
-                </p>
-            </div>
-        </article>
+<article class="step"><div class="dot"></div><div class="card">
+<span class="number">03</span><h3>📱 WhatsApp Became Our Classroom</h3>
+<p>Even though we weren't going to college, we continued communicating through WhatsApp. Then one day you told me about a platform on YouTube: <strong class="white">Vedantu.</strong><br><br>You said something that stayed with me:<br><br><span class="gray">"We have to crack NITs and IITs."</span></p>
+</div></article>
 
-        <!-- 03 -->
-        <article class="step">
-            <div class="dot"></div>
-            <div class="card">
-                <span class="num">03</span>
-                <h3>📚 You Worked While You Waited</h3>
-                <p>
-                    Instead of simply sitting at home and waiting for luck,
-                    you found ways to keep yourself moving.
-                    You did <span class="highlight">part-time tuition work</span>
-                    and continued looking for opportunities.
-                    <br><br>
-                    The destination was still IT.
-                    The route just wasn't easy.
-                </p>
-            </div>
-        </article>
+<article class="step"><div class="dot"></div><div class="card">
+<span class="number">04</span><h3>🎯 We Dreamed Bigger Than We Were Prepared For</h3>
+<p>We started watching Vedantu lectures and dreamed about NITs and IITs. I watched many lectures too. But honestly, I wasn't practicing enough. I was mostly completing lectures without doing the hard part — solving problems.<br><br><strong class="white">We had the dream, but we didn't yet have the right plan or discipline behind it.</strong></p>
+</div></article>
 
-        <!-- 04 -->
-        <article class="step">
-            <div class="dot"></div>
-            <div class="card">
-                <span class="num">04</span>
-                <h3>🔎 The Search Continued</h3>
-                <p>
-                    Applications, waiting, searching and trying again.
-                    The road could have made you give up.
-                    Instead, you kept looking for that one opening
-                    that would finally give you a way into IT.
-                </p>
-            </div>
-        </article>
+<article class="step"><div class="dot"></div><div class="card">
+<span class="number">05</span><h3>📝 The Result We Didn't Want</h3>
+<p>We didn't crack NIT or IIT. We also tried to use what we had learned to prepare for EAMCET. But again, practice and planning were not where they needed to be.<br><br>EAMCET results came. I got around <strong class="white">36,000 rank</strong>. You got around <strong class="white">31,000 rank</strong>.<br><br>I was satisfied with my rank and joined B.Tech. <strong class="white">But you weren't satisfied.</strong></p>
+</div></article>
 
-        <!-- 05 -->
-        <article class="step">
-            <div class="dot"></div>
-            <div class="card">
-                <span class="num">05</span>
-                <h3>🤝 Then Came the Opportunity</h3>
-                <p>
-                    Finally, an opportunity came through
-                    <span class="highlight">Balaji Panja</span>,
-                    your relative — and his relative as well.
-                    <br><br>
-                    That opportunity became the bridge between
-                    your long struggle and your IT career.
-                </p>
-            </div>
-        </article>
-
-        <!-- 06 -->
-        <article class="step">
-            <div class="dot"></div>
-            <div class="card">
-                <span class="num">06</span>
-                <h3>💻 Your Entry Into IT</h3>
-                <p>
-                    You finally entered the IT industry.
-                    Not through the easiest route.
-                    Not immediately after college.
-                    But after years of trying.
-                    <br><br>
-                    You started your professional journey as a
-                    <span class="gold">Manual Tester</span>.
-                </p>
-                <div class="pills">
-                    <span class="pill">IT Industry</span>
-                    <span class="pill">Manual Testing</span>
-                    <span class="pill">New Beginning</span>
-                </div>
-            </div>
-        </article>
-
-        <!-- 07 -->
-        <article class="step">
-            <div class="dot"></div>
-            <div class="card">
-                <span class="num">07</span>
-                <h3>🚀 You Didn't Stop at Manual Testing</h3>
-                <p>
-                    Getting into IT was not the finish line.
-                    It was the beginning.
-                    <br><br>
-                    You learned <span class="highlight">Automation Testing</span>
-                    and expanded your skills.
-                    You kept improving yourself instead of becoming comfortable
-                    with where you had started.
-                </p>
-            </div>
-        </article>
-
-        <!-- 08 -->
-        <article class="step">
-            <div class="dot"></div>
-            <div class="card">
-                <span class="num">08</span>
-                <h3>⭐ From Beginner to Someone Others Depend On</h3>
-                <p>
-                    Today, you are working as a <span class="highlight">Tester</span>.
-                    And the most beautiful part of the journey is not just the job title.
-                    <br><br>
-                    Your colleagues now <span class="gold">depend on you for your work</span>.
-                    The person who once struggled to get one opportunity
-                    became someone others can rely on.
-                </p>
-            </div>
-        </article>
-
-    </div>
-
-    <!-- TURNING POINT -->
-    <section class="turning-point">
-        <h2>Look at Where You Started...</h2>
-        <div class="big">AND LOOK AT YOU NOW. 🔥</div>
-        <p>
-            Three years of uncertainty did not define you.
-            Your Mechanical Engineering background did not stop you.
-            The lack of a placement did not stop you.
-            You found another route, entered IT, learned Automation Testing,
-            and became someone your teammates can depend on.
-        </p>
-    </section>
-
-    <!-- CURRENT ROLE -->
-    <div class="section-head">
-        <div class="tag">Where You Are Today</div>
-        <h2>The Struggle Became Experience.</h2>
-        <p>You didn't just get into IT. You grew inside it.</p>
-    </div>
-
-    <div class="role">
-        <div class="role-card">
-            <div class="role-icon">🧪</div>
-            <h3>Tester</h3>
-            <p>Building your career in software testing.</p>
-        </div>
-
-        <div class="role-card">
-            <div class="role-icon">⚙️</div>
-            <h3>Automation Testing</h3>
-            <p>You learned beyond manual testing and expanded your technical skills.</p>
-        </div>
-
-        <div class="role-card">
-            <div class="role-icon">🤝</div>
-            <h3>Someone People Rely On</h3>
-            <p>Your colleagues depend on you for your work.</p>
-        </div>
-
-        <div class="role-card">
-            <div class="role-icon">🔥</div>
-            <h3>A Fighter</h3>
-            <p>You kept going when the easier option would have been to stop.</p>
-        </div>
-    </div>
-
-    <!-- PERSONAL MESSAGE -->
-    <section class="message">
-        <h2>💙 A Message From Your Cousin</h2>
-
-        <p>
-            Dear <span class="name">Leela Sai Venkateswara Rao Kurella</span>,
-        </p>
-
-        <p>
-            I want you to know something.
-            I genuinely look up to your journey.
-            You are one of the people who inspired me because of the way
-            you handled your struggle.
-        </p>
-
-        <p>
-            You finished B.Tech in Mechanical Engineering,
-            but you wanted to build a career in IT.
-            The next three years were not easy.
-            There was no placement waiting for you.
-            Still, you didn't decide that your dream was impossible.
-        </p>
-
-        <p>
-            You did tuition work, searched for opportunities,
-            and kept trying until an opportunity finally came through
-            <span class="highlight">Balaji Panja</span>.
-        </p>
-
-        <p>
-            Then you entered IT as a Manual Tester.
-            Even after entering the industry, you didn't stop learning.
-            You learned Automation Testing and continued growing.
-        </p>
-
-        <p>
-            And today, you are a Tester whose colleagues depend on you
-            for your work.
-            Think about that for a moment.
-        </p>
-
-        <p>
-            The person who once spent years looking for an opportunity
-            is now someone other people rely on.
-        </p>
-
-        <p>
-            That is why your journey matters to me.
-            Not because everything went perfectly —
-            <span class="gold">but because you kept going when it didn't.</span>
-        </p>
-
-        <p>
-            I'm proud of you, bro.
-            Keep learning. Keep growing.
-            And never forget how far you have already come. ❤️
-        </p>
-    </section>
-
+</div>
 </main>
 
-<!-- FINAL -->
-<section class="final">
-    <div class="final-inner">
-        <div class="heart">❤️</div>
+<section class="break"><div class="break-inner">
+<small>And this is where I saw the difference</small>
+<h2>YOU<br>DIDN'T<br>SETTLE.</h2>
+<p>While I moved forward with B.Tech, you made a much harder decision. You didn't want to simply accept the result. You took a long-term preparation route and tried again for JEE.</p>
+</div></section>
 
-        <h2>Your Journey Is Your Strength.</h2>
+<main class="container">
+<div class="section-head">
+<div class="tag">Chapter Two</div>
+<h2>The Second<br>Attempt.</h2>
+<p>Sometimes determination is simply the decision to try again when everyone else has already moved on.</p>
+</div>
 
-        <p>
-            From a Mechanical Engineering graduate trying to enter IT...
-            <br>
-            to a Manual Tester...
-            <br>
-            to learning Automation Testing...
-            <br>
-            to becoming a Tester that colleagues depend on.
-        </p>
+<div class="timeline">
 
-        <div class="quote">
-            "You didn't get the easy beginning.<br>
-            You created your own way forward."
-        </div>
+<article class="step"><div class="dot"></div><div class="card">
+<span class="number">06</span><h3>🔥 You Took the Long-Term Route</h3>
+<p>You decided not to join B.Tech immediately. You took long-term preparation and prepared on your own. You tried JEE again.<br><br>It wasn't an easy road, and it didn't suddenly become perfect. But the important thing was: <strong class="white">you were willing to start again.</strong></p>
+</div></article>
 
-        <div class="signature">
-            With respect, pride & love,
-            <strong>Your Cousin — Srinivas ❤️</strong>
-        </div>
-    </div>
+<article class="step"><div class="dot"></div><div class="card">
+<span class="number">07</span><h3>📈 The Result Changed</h3>
+<p>This time, your effort produced a completely different result. You achieved an EAMCET rank in the <strong class="white">3,000–5,000 range</strong>.<br><br>That was the moment I understood something:<br><br><strong class="gray">The first result was not your limit.</strong></p>
+</div></article>
+
+<article class="step"><div class="dot"></div><div class="card">
+<span class="number">08</span><h3>🏛️ SRKR Engineering College — CSE</h3>
+<p>You joined <strong class="white">SRKR Engineering College</strong> and chose <strong class="white">Computer Science Engineering</strong>.<br><br>The same person who once didn't settle for a 31K rank had completely changed his trajectory.</p>
+<div class="pills"><span class="pill">SRKR</span><span class="pill">CSE</span><span class="pill">New Beginning</span></div>
+</div></article>
+
+<article class="step"><div class="dot"></div><div class="card">
+<span class="number">09</span><h3>💻 Four Years Later — Infosys</h3>
+<p>Then came another milestone. You cracked <strong class="white">Infosys</strong> with a package of approximately <strong class="white">6.5 LPA</strong>.<br><br>From an uncertain Intermediate student, to someone who had the courage to restart, to a CSE graduate, to an IT professional.<br><br><strong class="white">That journey is what inspires me.</strong></p>
+</div></article>
+
+<article class="step"><div class="dot"></div><div class="card">
+<span class="number">10</span><h3>🤖 AI Domain — Waiting for the Next Chapter</h3>
+<p>You got into an <strong class="white">AI domain</strong> and completed your training. Now you're waiting for your location and the next chapter of your professional journey.<br><br>The journey is still going. <strong class="white">This is not the ending.</strong></p>
+</div></article>
+
+</div>
+
+<section class="compare">
+<div class="person"><div class="icon">🚀</div><h3>Harinivas</h3><div class="role">The one who inspired me</div>
+<p>Didn't accept the first result. Took another chance. Prepared again. Reached a top college. Cracked Infosys. Entered the AI domain. <strong>Kept pushing forward.</strong></p></div>
+<div class="person"><div class="icon">💻</div><h3>Srinivas</h3><div class="role">The friend walking alongside</div>
+<p>Got around 36K in EAMCET. Joined B.Tech. Eventually got an opportunity at Cognizant with around <strong>4 LPA</strong>. And while building my own career, I watched your determination become an inspiration.</p></div>
 </section>
 
-<footer>
-    Made with friendship, respect & belief.
-    <br><br>
-    <strong>Leela Sai Venkateswara Rao Kurella — Keep Going. 🚀</strong>
-</footer>
+<section class="message">
+<h2>🖤 A Message For You</h2>
+<p>Dear <span class="name">Harinivas</span>,</p>
+<p>I don't know if you realize how much your journey has influenced me. We started as normal classmates in Intermediate. We didn't even have that strong a bond back then.</p>
+<p>Then COVID happened. We stopped going to college. We had pending exams. We weren't serious about online classes. And honestly, neither of us had a clear plan.</p>
+<p>Then you came to me and said we should crack NITs and IITs. You introduced me to Vedantu. We watched lectures together and dreamed big. I didn't practice enough, and we didn't crack it.</p>
+<p>Then came EAMCET. I got around 36K and was okay with it. But you weren't. You chose to take another year, prepare again and fight for a better result.</p>
+<p>And you did it. You brought your rank into the 3K–5K range, joined SRKR Engineering College in CSE, and eventually cracked Infosys at around 6.5 LPA.</p>
+<p>Today you're trained in an AI domain and waiting for the next chapter. And when I look at that journey, I don't just see marks, ranks or salary.</p>
+<p><strong class="white">I see courage. I see determination. I see someone who refused to let one result decide his future.</strong></p>
+<p>That is the reason I call you an inspiration. Not because you were always successful. But because <strong class="white">when the result wasn't what you wanted, you had the courage to try again.</strong></p>
+<p>I'm proud to call you my friend, bro. And wherever our careers take us, I hope we both keep that same spirit: <strong class="white">dream bigger, work harder, and never settle too early.</strong></p>
+</section>
+</main>
+
+<section class="final"><div class="final-inner">
+<div class="symbol">★</div>
+<h2>THE FIRST RESULT<br>WAS NEVER THE END.</h2>
+<div class="line"></div>
+<p>From two ordinary Intermediate classmates... to two people building careers in IT.<br><br>One path started earlier. One path took a second attempt. But both journeys are still being written.</p>
+<div class="quote">"Your courage to start again<br>became my inspiration to keep going."</div>
+<div class="signature">With respect, pride & brotherhood,<strong>Your Friend — Srinivas 🤍</strong></div>
+</div></section>
+
+<footer>Made for a friend whose determination deserves to be remembered.<br><br><strong>Kunapareddy Harinivas — Keep going. Your story is still being written.</strong></footer>
+</div>
 
 <script>
-/* Reveal each story card as it enters the screen */
-const steps = document.querySelectorAll(".step");
+const canvas=document.getElementById("space"),ctx=canvas.getContext("2d");
+let stars=[],w,h;
+function resize(){
+  w=canvas.width=innerWidth;h=canvas.height=innerHeight;stars=[];
+  const count=Math.min(420,Math.floor(w*h/5000));
+  for(let i=0;i<count;i++)stars.push({x:(Math.random()-.5)*w*2,y:(Math.random()-.5)*h*2,z:Math.random()*w,pz:0});
+}
+resize();addEventListener("resize",resize);
+function animateStars(){
+  ctx.fillStyle="#030303";ctx.fillRect(0,0,w,h);
+  const cx=w/2,cy=h/2;
+  for(const s of stars){
+    s.pz=s.z;s.z-=3.2;
+    if(s.z<1){s.z=w;s.x=(Math.random()-.5)*w*2;s.y=(Math.random()-.5)*h*2;s.pz=s.z}
+    const sx=s.x/s.z*w+cx,sy=s.y/s.z*w+cy,px=s.x/s.pz*w+cx,py=s.y/s.pz*w+cy;
+    if(sx<0||sx>w||sy<0||sy>h)continue;
+    const size=Math.max(.4,(1-s.z/w)*3),a=Math.min(1,(1-s.z/w)*1.3);
+    ctx.beginPath();ctx.moveTo(px,py);ctx.lineTo(sx,sy);ctx.strokeStyle=`rgba(255,255,255,${a})`;ctx.lineWidth=size;ctx.stroke();
+    ctx.beginPath();ctx.arc(sx,sy,size*.8,0,Math.PI*2);ctx.fillStyle=`rgba(255,255,255,${a})`;ctx.fill();
+  }
+  requestAnimationFrame(animateStars);
+}
+animateStars();
 
-const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if(entry.isIntersecting){
-            entry.target.classList.add("visible");
-        }
-    });
-},{threshold:.16});
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add("show")});
+},{threshold:.13});
+document.querySelectorAll(".step").forEach(e=>observer.observe(e));
 
-steps.forEach(step => observer.observe(step));
-
-/* Small celebration effect when the page is clicked */
-document.addEventListener("click", e => {
-    const icons = ["✨","⭐","🔥","💪","🚀","❤️"];
-    const spark = document.createElement("div");
-    spark.className = "spark";
-    spark.textContent = icons[Math.floor(Math.random()*icons.length)];
-    spark.style.left = e.clientX + "px";
-    spark.style.top = e.clientY + "px";
-    document.body.appendChild(spark);
-    setTimeout(() => spark.remove(), 1000);
+document.addEventListener("click",e=>{
+  for(let i=0;i<8;i++){
+    const p=document.createElement("span");p.textContent="✦";
+    p.style.cssText=`position:fixed;left:${e.clientX}px;top:${e.clientY}px;color:#fff;font-size:${10+Math.random()*15}px;pointer-events:none;z-index:9999;transition:1s ease-out`;
+    document.body.appendChild(p);
+    const dx=(Math.random()-.5)*140,dy=(Math.random()-.5)*140;
+    requestAnimationFrame(()=>{p.style.transform=`translate(${dx}px,${dy}px) scale(0)`;p.style.opacity="0"});
+    setTimeout(()=>p.remove(),1000);
+  }
 });
 </script>
-
 </body>
 </html>
