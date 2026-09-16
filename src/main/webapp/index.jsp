@@ -52,7 +52,7 @@ body:after{
   backdrop-filter:blur(15px);color:#dce8ff;
   font-size:.72rem;font-weight:800;letter-spacing:3px;text-transform:uppercase;
 }
-.badge i{width:8px;height:8px;border-radius:50%;background:#49e8ff;box-shadow:0 0 15px #49e8ff}
+.badge em{width:8px;height:8px;border-radius:50%;background:#49e8ff;box-shadow:0 0 15px #49e8ff}
 
 .hero h1{
   margin-top:30px;font-size:clamp(3.5rem,10vw,9rem);
@@ -244,7 +244,7 @@ footer strong{color:#b9c7dc}
 
 <section class="hero">
   <div class="hero-inner">
-    <div class="badge"><i></i> A Story of Friendship • Memories • Brotherhood</div>
+    <div class="badge"><em aria-hidden="true"></em> A Story of Friendship • Memories • Brotherhood</div>
     <h1>VEERESH<br><span>BALLA</span></h1>
     <p class="lead">
       We started as <strong>ordinary B.Tech classmates</strong>.
