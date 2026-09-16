@@ -1,103 +1,1919 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
-         https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <title>My Journey With Veeresh</title>
 
-    <modelVersion>4.0.0</modelVersion>
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 
-    <groupId>in.javahome</groupId>
-    <artifactId>myweb</artifactId>
-    <version>8.8.1</version>
-    <packaging>war</packaging>
+    <style>
 
-    <name>Java Home myweb</name>
-    <url>https://maven.apache.org</url>
+        /* =========================================================
+           GLOBAL
+        ========================================================= */
 
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-        <!-- Build old application code using Java 8 compatibility -->
-        <maven.compiler.release>8</maven.compiler.release>
+        html {
+            scroll-behavior: smooth;
+        }
 
-        <docker.image.prefix>kammana</docker.image.prefix>
-        <sonar.host.url>http://18.181.164.81:9000</sonar.host.url>
-    </properties>
+        body {
+            font-family: "DM Sans", sans-serif;
+            color: #24324a;
 
-    <dependencies>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.13.2</version>
-            <scope>test</scope>
-        </dependency>
-    </dependencies>
+            background:
+                radial-gradient(circle at 10% 10%, rgba(120, 119, 198, 0.16), transparent 28%),
+                radial-gradient(circle at 90% 20%, rgba(255, 183, 197, 0.20), transparent 30%),
+                radial-gradient(circle at 50% 90%, rgba(104, 211, 145, 0.12), transparent 30%),
+                linear-gradient(135deg, #f8fbff, #fff8f5 48%, #f7f5ff);
 
-    <repositories>
-             <repository>
-                    <id>flm-feed</id>
-                    <url>https://pkgs.dev.azure.com/afsanabegummd00/MyFirstProject/_packaging/flm-feed/maven/v1</url>
-                    <releases>
-                      <enabled>true</enabled>
-                      </releases>
-                      <snapshots>
-                               <enabled>true</enabled>
-                      </snapshots>
-              </repository>
-    </repositories>
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
 
-    <distributionManagement>
-            <repository>
-  <id>flm-feed</id>
-  <url>https://pkgs.dev.azure.com/afsanabegummd00/MyFirstProject/_packaging/flm-feed/maven/v1</url>
-  <releases>
-    <enabled>true</enabled>
-  </releases>
-  <snapshots>
-    <enabled>true</enabled>
-  </snapshots>
-</repository>
-        <snapshotRepository>
-            <id>nexusRepo</id>
-            <url>http://34.208.218.12:8081/repository/sample-snapshots/</url>
-        </snapshotRepository>
-    </distributionManagement>
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
 
-    <build>
-        <finalName>myweb</finalName>
+        /* =========================================================
+           FLOATING PARTICLES
+        ========================================================= */
 
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-resources-plugin</artifactId>
-                <version>3.3.1</version>
-            </plugin>
+        .particles {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 0;
+        }
 
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.13.0</version>
-                <configuration>
-                    <release>8</release>
-                </configuration>
-            </plugin>
+        .particle {
+            position: absolute;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: rgba(100, 116, 139, 0.18);
+            animation: floatParticle linear infinite;
+        }
 
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.2.5</version>
-            </plugin>
+        .particle:nth-child(1) {
+            left: 8%;
+            animation-duration: 16s;
+            animation-delay: -4s;
+        }
 
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-war-plugin</artifactId>
-                <version>3.4.0</version>
-                <configuration>
-                    <failOnMissingWebXml>false</failOnMissingWebXml>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
+        .particle:nth-child(2) {
+            left: 22%;
+            animation-duration: 21s;
+            animation-delay: -10s;
+        }
 
-</project>
+        .particle:nth-child(3) {
+            left: 38%;
+            animation-duration: 18s;
+            animation-delay: -6s;
+        }
+
+        .particle:nth-child(4) {
+            left: 55%;
+            animation-duration: 24s;
+            animation-delay: -12s;
+        }
+
+        .particle:nth-child(5) {
+            left: 72%;
+            animation-duration: 19s;
+            animation-delay: -8s;
+        }
+
+        .particle:nth-child(6) {
+            left: 88%;
+            animation-duration: 23s;
+            animation-delay: -15s;
+        }
+
+        @keyframes floatParticle {
+            0% {
+                transform: translateY(110vh) scale(0.5);
+                opacity: 0;
+            }
+
+            15% {
+                opacity: 1;
+            }
+
+            85% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-10vh) scale(1.2);
+                opacity: 0;
+            }
+        }
+
+        /* =========================================================
+           NAVBAR
+        ========================================================= */
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+
+            height: 72px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 7%;
+
+            background: rgba(255, 255, 255, 0.72);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+
+            border-bottom: 1px solid rgba(148, 163, 184, 0.16);
+
+            z-index: 1000;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 20px;
+            letter-spacing: -0.5px;
+            color: #3949ab;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #64748b;
+        }
+
+        .nav-links a {
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #3949ab;
+        }
+
+        /* =========================================================
+           HERO
+        ========================================================= */
+
+        .hero {
+            position: relative;
+            z-index: 1;
+
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 120px 7% 80px;
+
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 950px;
+
+            animation: heroAppear 1.2s ease forwards;
+        }
+
+        @keyframes heroAppear {
+            from {
+                opacity: 0;
+                transform: translateY(35px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+
+            padding: 9px 17px;
+
+            border-radius: 50px;
+
+            background: rgba(255, 255, 255, 0.75);
+
+            border: 1px solid rgba(99, 102, 241, 0.15);
+
+            color: #6366f1;
+
+            font-size: 13px;
+            font-weight: 700;
+
+            box-shadow: 0 8px 30px rgba(79, 70, 229, 0.08);
+
+            margin-bottom: 30px;
+        }
+
+        .hero h1 {
+            font-family: "Playfair Display", serif;
+
+            font-size: clamp(52px, 9vw, 110px);
+
+            line-height: 0.98;
+
+            letter-spacing: -4px;
+
+            background:
+                linear-gradient(
+                    120deg,
+                    #334155,
+                    #4f46e5,
+                    #8b5cf6,
+                    #db2777
+                );
+
+            -webkit-background-clip: text;
+            background-clip: text;
+
+            color: transparent;
+
+            margin-bottom: 28px;
+        }
+
+        .hero h2 {
+            font-size: clamp(20px, 3vw, 30px);
+
+            font-weight: 500;
+
+            color: #475569;
+
+            margin-bottom: 24px;
+        }
+
+        .hero-description {
+            max-width: 720px;
+
+            margin: auto;
+
+            font-size: 17px;
+
+            line-height: 1.9;
+
+            color: #64748b;
+        }
+
+        .scroll-down {
+            margin-top: 55px;
+
+            display: inline-flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            gap: 8px;
+
+            color: #94a3b8;
+
+            font-size: 12px;
+
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(8px);
+            }
+        }
+
+        /* =========================================================
+           COMMON SECTION
+        ========================================================= */
+
+        section {
+            position: relative;
+            z-index: 1;
+
+            padding: 110px 7%;
+        }
+
+        .section-heading {
+            text-align: center;
+
+            max-width: 760px;
+
+            margin: 0 auto 70px;
+        }
+
+        .section-heading span {
+            color: #6366f1;
+
+            font-size: 13px;
+
+            font-weight: 800;
+
+            text-transform: uppercase;
+
+            letter-spacing: 2px;
+        }
+
+        .section-heading h2 {
+            font-family: "Playfair Display", serif;
+
+            font-size: clamp(38px, 5vw, 62px);
+
+            margin: 15px 0;
+
+            color: #1e293b;
+        }
+
+        .section-heading p {
+            color: #64748b;
+
+            line-height: 1.8;
+
+            font-size: 16px;
+        }
+
+        /* =========================================================
+           INTRO CARD
+        ========================================================= */
+
+        .story-intro {
+            max-width: 950px;
+
+            margin: auto;
+
+            padding: 55px;
+
+            background: rgba(255, 255, 255, 0.78);
+
+            border: 1px solid rgba(148, 163, 184, 0.16);
+
+            border-radius: 30px;
+
+            box-shadow:
+                0 30px 80px rgba(51, 65, 85, 0.08);
+
+            backdrop-filter: blur(16px);
+
+            line-height: 1.95;
+
+            color: #475569;
+
+            font-size: 17px;
+        }
+
+        .story-intro strong {
+            color: #3949ab;
+        }
+
+        /* =========================================================
+           TIMELINE
+        ========================================================= */
+
+        .timeline {
+            position: relative;
+
+            max-width: 1000px;
+
+            margin: auto;
+        }
+
+        .timeline::before {
+            content: "";
+
+            position: absolute;
+
+            left: 50%;
+
+            top: 0;
+            bottom: 0;
+
+            width: 2px;
+
+            transform: translateX(-50%);
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    transparent,
+                    #a5b4fc,
+                    #c4b5fd,
+                    #f9a8d4,
+                    transparent
+                );
+        }
+
+        .timeline-item {
+            position: relative;
+
+            width: 50%;
+
+            padding: 25px 45px;
+
+            opacity: 0;
+
+            transform: translateY(40px);
+
+            transition: 0.8s ease;
+        }
+
+        .timeline-item.visible {
+            opacity: 1;
+
+            transform: translateY(0);
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+
+        .timeline-dot {
+            position: absolute;
+
+            top: 38px;
+
+            width: 17px;
+            height: 17px;
+
+            border-radius: 50%;
+
+            background: #6366f1;
+
+            border: 4px solid #fff;
+
+            box-shadow:
+                0 0 0 5px rgba(99, 102, 241, 0.13),
+                0 6px 18px rgba(99, 102, 241, 0.25);
+
+            z-index: 2;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-dot {
+            right: -8px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-dot {
+            left: -8px;
+        }
+
+        .timeline-card {
+            background: rgba(255, 255, 255, 0.82);
+
+            border: 1px solid rgba(148, 163, 184, 0.15);
+
+            padding: 30px;
+
+            border-radius: 24px;
+
+            box-shadow:
+                0 20px 50px rgba(30, 41, 59, 0.07);
+
+            transition: 0.35s ease;
+        }
+
+        .timeline-card:hover {
+            transform: translateY(-7px);
+
+            box-shadow:
+                0 28px 65px rgba(79, 70, 229, 0.12);
+        }
+
+        .timeline-card .year {
+            font-size: 12px;
+
+            font-weight: 800;
+
+            color: #8b5cf6;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1.5px;
+        }
+
+        .timeline-card h3 {
+            font-family: "Playfair Display", serif;
+
+            font-size: 27px;
+
+            margin: 10px 0 14px;
+
+            color: #1e293b;
+        }
+
+        .timeline-card p {
+            color: #64748b;
+
+            line-height: 1.8;
+
+            font-size: 15px;
+        }
+
+        /* =========================================================
+           VEERESH SECTION
+        ========================================================= */
+
+        .veeresh-section {
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(238, 242, 255, 0.8),
+                    rgba(250, 245, 255, 0.8)
+                );
+        }
+
+        .qualities {
+            max-width: 1050px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 22px;
+        }
+
+        .quality-card {
+            padding: 35px;
+
+            border-radius: 25px;
+
+            background: rgba(255, 255, 255, 0.82);
+
+            border: 1px solid rgba(148, 163, 184, 0.13);
+
+            box-shadow:
+                0 20px 45px rgba(51, 65, 85, 0.06);
+
+            transition: 0.35s;
+        }
+
+        .quality-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .quality-icon {
+            font-size: 30px;
+
+            margin-bottom: 20px;
+        }
+
+        .quality-card h3 {
+            margin-bottom: 10px;
+
+            font-size: 20px;
+
+            color: #1e293b;
+        }
+
+        .quality-card p {
+            color: #64748b;
+
+            line-height: 1.7;
+
+            font-size: 14px;
+        }
+
+        /* =========================================================
+           MOVIES
+        ========================================================= */
+
+        .movies-grid {
+            max-width: 1100px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(170px, 1fr));
+
+            gap: 18px;
+        }
+
+        .movie {
+            min-height: 150px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            text-align: center;
+
+            padding: 25px;
+
+            border-radius: 22px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255, 255, 255, 0.9),
+                    rgba(245, 243, 255, 0.9)
+                );
+
+            border: 1px solid rgba(99, 102, 241, 0.12);
+
+            box-shadow:
+                0 15px 35px rgba(51, 65, 85, 0.06);
+
+            font-family: "Playfair Display", serif;
+
+            font-size: 21px;
+
+            color: #334155;
+
+            transition: 0.4s;
+        }
+
+        .movie:hover {
+            transform:
+                translateY(-8px)
+                rotate(1deg);
+
+            box-shadow:
+                0 25px 55px rgba(99, 102, 241, 0.13);
+        }
+
+        /* =========================================================
+           MEMORIES
+        ========================================================= */
+
+        .memory-container {
+            max-width: 950px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 25px;
+        }
+
+        .memory {
+            padding: 38px;
+
+            border-radius: 25px;
+
+            background: rgba(255, 255, 255, 0.8);
+
+            box-shadow:
+                0 20px 50px rgba(51, 65, 85, 0.07);
+
+            border: 1px solid rgba(148, 163, 184, 0.13);
+
+            transition: 0.35s;
+        }
+
+        .memory:hover {
+            transform: translateY(-6px);
+        }
+
+        .memory-number {
+            font-size: 13px;
+
+            color: #6366f1;
+
+            font-weight: 800;
+
+            margin-bottom: 15px;
+        }
+
+        .memory h3 {
+            font-family: "Playfair Display", serif;
+
+            font-size: 26px;
+
+            margin-bottom: 12px;
+
+            color: #1e293b;
+        }
+
+        .memory p {
+            color: #64748b;
+
+            line-height: 1.8;
+        }
+
+        /* =========================================================
+           CAREER SECTION
+        ========================================================= */
+
+        .career {
+            max-width: 950px;
+
+            margin: auto;
+
+            padding: 55px;
+
+            border-radius: 30px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(255, 255, 255, 0.9),
+                    rgba(239, 246, 255, 0.9)
+                );
+
+            border: 1px solid rgba(99, 102, 241, 0.12);
+
+            box-shadow:
+                0 30px 80px rgba(51, 65, 85, 0.08);
+
+            text-align: center;
+        }
+
+        .career h3 {
+            font-family: "Playfair Display", serif;
+
+            font-size: 40px;
+
+            color: #1e293b;
+
+            margin-bottom: 20px;
+        }
+
+        .career p {
+            max-width: 750px;
+
+            margin: auto;
+
+            color: #64748b;
+
+            line-height: 1.9;
+
+            font-size: 16px;
+        }
+
+        .career-highlight {
+            margin-top: 30px;
+
+            display: inline-block;
+
+            padding: 12px 20px;
+
+            border-radius: 50px;
+
+            background: #eef2ff;
+
+            color: #4f46e5;
+
+            font-weight: 700;
+        }
+
+        /* =========================================================
+           FINAL LETTER
+        ========================================================= */
+
+        .letter-section {
+            padding-bottom: 130px;
+        }
+
+        .letter {
+            max-width: 900px;
+
+            margin: auto;
+
+            padding: 70px 65px;
+
+            position: relative;
+
+            border-radius: 32px;
+
+            background: #fff;
+
+            box-shadow:
+                0 35px 90px rgba(51, 65, 85, 0.10);
+
+            border: 1px solid rgba(148, 163, 184, 0.13);
+
+            overflow: hidden;
+        }
+
+        .letter::before {
+            content: "“";
+
+            position: absolute;
+
+            top: -45px;
+            right: 35px;
+
+            font-family: "Playfair Display", serif;
+
+            font-size: 190px;
+
+            color: rgba(99, 102, 241, 0.06);
+        }
+
+        .letter h2 {
+            font-family: "Playfair Display", serif;
+
+            font-size: 44px;
+
+            color: #1e293b;
+
+            margin-bottom: 30px;
+        }
+
+        .letter p {
+            color: #526174;
+
+            line-height: 2;
+
+            font-size: 16px;
+
+            margin-bottom: 20px;
+        }
+
+        .letter .name {
+            margin-top: 35px;
+
+            font-family: "Playfair Display", serif;
+
+            font-size: 30px;
+
+            color: #4f46e5;
+        }
+
+        .signature {
+            margin-top: 5px;
+
+            color: #94a3b8;
+
+            font-size: 14px;
+        }
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        footer {
+            text-align: center;
+
+            padding: 45px 20px;
+
+            background: rgba(255, 255, 255, 0.6);
+
+            border-top: 1px solid rgba(148, 163, 184, 0.12);
+
+            color: #94a3b8;
+
+            font-size: 13px;
+        }
+
+        footer strong {
+            color: #6366f1;
+        }
+
+        /* =========================================================
+           RESPONSIVE
+        ========================================================= */
+
+        @media (max-width: 800px) {
+
+            nav {
+                padding: 0 5%;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            section {
+                padding: 80px 5%;
+            }
+
+            .hero {
+                padding-left: 5%;
+                padding-right: 5%;
+            }
+
+            .hero h1 {
+                letter-spacing: -2px;
+            }
+
+            .story-intro,
+            .career,
+            .letter {
+                padding: 35px 25px;
+            }
+
+            .timeline::before {
+                left: 10px;
+            }
+
+            .timeline-item,
+            .timeline-item:nth-child(even) {
+                width: 100%;
+                left: 0;
+
+                padding-left: 40px;
+                padding-right: 0;
+
+                text-align: left;
+            }
+
+            .timeline-item:nth-child(odd) .timeline-dot,
+            .timeline-item:nth-child(even) .timeline-dot {
+                left: 2px;
+                right: auto;
+            }
+
+            .qualities {
+                grid-template-columns: 1fr;
+            }
+
+            .memory-container {
+                grid-template-columns: 1fr;
+            }
+
+            .letter h2 {
+                font-size: 34px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+<!-- =========================================================
+     FLOATING BACKGROUND
+========================================================= -->
+
+<div class="particles">
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+</div>
+
+
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
+
+<nav>
+
+    <div class="logo">
+        S × V
+    </div>
+
+    <div class="nav-links">
+        <a href="#story">Our Story</a>
+        <a href="#journey">Journey</a>
+        <a href="#memories">Memories</a>
+        <a href="#movies">Movies</a>
+        <a href="#letter">Letter</a>
+    </div>
+
+</nav>
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<header class="hero">
+
+    <div class="hero-content">
+
+        <div class="eyebrow">
+            ✦ A Story That Was Never Planned
+        </div>
+
+        <h1>
+            My Journey<br>
+            With Veeresh
+        </h1>
+
+        <h2>
+            From classmates to an unexpected friendship.
+        </h2>
+
+        <p class="hero-description">
+            Sometimes the most important people in our lives
+            are not the people we planned to meet.
+            They simply become part of our journey —
+            one ordinary day at a time.
+        </p>
+
+        <a href="#story" class="scroll-down">
+            ↓
+            <span>Scroll to begin</span>
+        </a>
+
+    </div>
+
+</header>
+
+
+<!-- =========================================================
+     INTRO
+========================================================= -->
+
+<section id="story">
+
+    <div class="section-heading">
+
+        <span>The Beginning</span>
+
+        <h2>
+            We Didn't Know
+            What Was Coming
+        </h2>
+
+        <p>
+            In B.Tech, Veeresh and I were simply classmates.
+            Nothing extraordinary. Nothing dramatic.
+            Just two people studying in the same college.
+        </p>
+
+    </div>
+
+
+    <div class="story-intro">
+
+        <p>
+            During the first three years of B.Tech, I didn't know
+            Veeresh that well. We were classmates, and that was
+            pretty much it.
+        </p>
+
+        <br>
+
+        <p>
+            One day, my best friends went on a college trip to
+            Maredumilli without telling me. Honestly, I wasn't
+            interested in going anyway, so I didn't join them.
+        </p>
+
+        <br>
+
+        <p>
+            At that time, Veeresh's batch also didn't go on the trip.
+            Somehow, I started spending time with his batch during
+            lunch. It was only for a few days, but those few days
+            quietly changed the direction of my college life.
+        </p>
+
+        <br>
+
+        <p>
+            When my friends returned from the trip, things were
+            different. The communication wasn't the same anymore.
+            I didn't really understand what had happened.
+        </p>
+
+        <br>
+
+        <p>
+            Then <strong>4th year started.</strong>
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     JOURNEY TIMELINE
+========================================================= -->
+
+<section id="journey">
+
+    <div class="section-heading">
+
+        <span>The Turning Point</span>
+
+        <h2>
+            One Seat Changed Everything
+        </h2>
+
+        <p>
+            Sometimes a friendship doesn't begin with a big moment.
+            Sometimes it begins with simply finding a place to sit.
+        </p>
+
+    </div>
+
+
+    <div class="timeline">
+
+
+        <!-- 1 -->
+
+        <div class="timeline-item">
+
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-card">
+
+                <div class="year">
+                    4th Year • Day One
+                </div>
+
+                <h3>
+                    The Empty Seat
+                </h3>
+
+                <p>
+                    For three years, I had sat beside my best friends.
+                    But after the trip, everything felt different.
+                    When I asked Manoj if I could sit in my usual place,
+                    he told me there was no space.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- 2 -->
+
+        <div class="timeline-item">
+
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-card">
+
+                <div class="year">
+                    The Next Chapter
+                </div>
+
+                <h3>
+                    A New Place
+                </h3>
+
+                <p>
+                    I ended up sitting alone. Our class teacher noticed
+                    and asked me to sit in the front. Veeresh's batch
+                    was sitting there.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- 3 -->
+
+        <div class="timeline-item">
+
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-card">
+
+                <div class="year">
+                    Slowly
+                </div>
+
+                <h3>
+                    I Started Sitting With Them
+                </h3>
+
+                <p>
+                    Day after day, I continued sitting with Veeresh's
+                    batch. I had left my old group behind, and I still
+                    didn't completely understand why things had changed.
+                    But life was quietly introducing me to new people.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- 4 -->
+
+        <div class="timeline-item">
+
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-card">
+
+                <div class="year">
+                    4th Year
+                </div>
+
+                <h3>
+                    The Lunches
+                </h3>
+
+                <p>
+                    Veeresh and his friends didn't bring lunch boxes.
+                    They would eat at the college canteen, where a meal
+                    cost around ₹60. At that time, I couldn't afford
+                    that every day.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- 5 -->
+
+        <div class="timeline-item">
+
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-card">
+
+                <div class="year">
+                    Something I Won't Forget
+                </div>
+
+                <h3>
+                    "I'll Pay."
+                </h3>
+
+                <p>
+                    Veeresh started giving me the money for lunch.
+                    Because of him, I was able to have lunch with
+                    them throughout 4th year. It may have seemed like
+                    a small thing to him, but to me it meant a lot.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- 6 -->
+
+        <div class="timeline-item">
+
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-card">
+
+                <div class="year">
+                    Somewhere Along The Way
+                </div>
+
+                <h3>
+                    A Real Friendship
+                </h3>
+
+                <p>
+                    What started as sitting in a different place
+                    slowly became conversations, lunches, movies,
+                    memories and a friendship I never expected.
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     VEERESH
+========================================================= -->
+
+<section class="veeresh-section">
+
+    <div class="section-heading">
+
+        <span>About Veeresh</span>
+
+        <h2>
+            He Was Different
+        </h2>
+
+        <p>
+            Not because he tried to prove it.
+            It was simply the way he was.
+        </p>
+
+    </div>
+
+
+    <div class="qualities">
+
+
+        <div class="quality-card">
+
+            <div class="quality-icon">
+                🧠
+            </div>
+
+            <h3>
+                Sharp Mind
+            </h3>
+
+            <p>
+                Veeresh has a very good IQ and an impressive ability
+                to understand things. He often didn't even look like
+                someone who was studying seriously, yet he consistently
+                performed exceptionally well.
+            </p>
+
+        </div>
+
+
+        <div class="quality-card">
+
+            <div class="quality-icon">
+                🏆
+            </div>
+
+            <h3>
+                The Topper
+            </h3>
+
+            <p>
+                His CGPA was among the highest, and he was the topper
+                among the boys in our college. His results showed the
+                ability he had, even when his preparation wasn't always
+                obvious from the outside.
+            </p>
+
+        </div>
+
+
+        <div class="quality-card">
+
+            <div class="quality-icon">
+                🤝
+            </div>
+
+            <h3>
+                A Good Friend
+            </h3>
+
+            <p>
+                From helping with lunch to spending time together,
+                Veeresh became someone whose presence made my final
+                year of college completely different.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     MEMORIES
+========================================================= -->
+
+<section id="memories">
+
+    <div class="section-heading">
+
+        <span>The Memories</span>
+
+        <h2>
+            More Than Just College Days
+        </h2>
+
+        <p>
+            Some friendships are remembered through conversations.
+            Ours has a whole collection of memories.
+        </p>
+
+    </div>
+
+
+    <div class="memory-container">
+
+
+        <div class="memory">
+
+            <div class="memory-number">
+                MEMORY 01
+            </div>
+
+            <h3>
+                Canteen Lunches
+            </h3>
+
+            <p>
+                Almost an entire 4th year of college lunches together.
+                ₹60 might sound like a small amount, but those lunches
+                became part of our story.
+            </p>
+
+        </div>
+
+
+        <div class="memory">
+
+            <div class="memory-number">
+                MEMORY 02
+            </div>
+
+            <h3>
+                Random Conversations
+            </h3>
+
+            <p>
+                Sitting together, talking, laughing and simply
+                spending time together — the ordinary moments became
+                the memories I remember the most.
+            </p>
+
+        </div>
+
+
+        <div class="memory">
+
+            <div class="memory-number">
+                MEMORY 03
+            </div>
+
+            <h3>
+                Movie Adventures
+            </h3>
+
+            <p>
+                I had never watched so many movies in a single year.
+                Veeresh somehow turned movie plans into a regular part
+                of our friendship.
+            </p>
+
+        </div>
+
+
+        <div class="memory">
+
+            <div class="memory-number">
+                MEMORY 04
+            </div>
+
+            <h3>
+                The Unexpected Journey
+            </h3>
+
+            <p>
+                The funny thing is that none of this was planned.
+                If everything had gone normally with my old friends,
+                I might never have experienced this chapter.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     MOVIES
+========================================================= -->
+
+<section id="movies">
+
+    <div class="section-heading">
+
+        <span>Our Movie Era</span>
+
+        <h2>
+            One Year. So Many Movies.
+        </h2>
+
+        <p>
+            In my entire life, I don't think I had watched this many
+            movies in a single year before.
+        </p>
+
+    </div>
+
+
+    <div class="movies-grid">
+
+        <div class="movie">
+            <span>Rayan</span>
+        </div>
+
+        <div class="movie">
+            <span>DJ: Double Ismart</span>
+        </div>
+
+        <div class="movie">
+            <span>Kalki 2898 AD</span>
+        </div>
+
+        <div class="movie">
+            <span>Coolie</span>
+        </div>
+
+        <div class="movie">
+            <span>War 2</span>
+        </div>
+
+        <div class="movie">
+            <span>Saripodhaa Sanivaaram</span>
+        </div>
+
+        <div class="movie">
+            <span>Game Changer</span>
+        </div>
+
+        <div class="movie">
+            <span>Lucky Baskhar</span>
+        </div>
+
+    </div>
+
+
+    <div class="story-intro" style="margin-top:55px;">
+
+        <p>
+            And every movie had its own story.
+        </p>
+
+        <br>
+
+        <p>
+            Sometimes we didn't reach the theatre on time.
+            Sometimes getting to the theatre itself became an adventure.
+            And <strong>Kalki</strong> was a completely different experience
+            during the journey to the theatre.
+        </p>
+
+        <br>
+
+        <p>
+            Looking back, I realize that the movies weren't really
+            the most important part. It was the person sitting beside me
+            and the memories we created around them.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     CAREER
+========================================================= -->
+
+<section>
+
+    <div class="section-heading">
+
+        <span>After College</span>
+
+        <h2>
+            Our Paths Started Changing
+        </h2>
+
+    </div>
+
+
+    <div class="career">
+
+        <h3>
+            My Journey Continued
+        </h3>
+
+        <p>
+            During 4th year, I got a job at Cognizant.
+            That became the beginning of another chapter in my life.
+        </p>
+
+        <br>
+
+        <p>
+            Veeresh was still working toward his next opportunity.
+            And honestly, I know what kind of potential he has.
+            He has the intelligence, the knowledge and the ability.
+        </p>
+
+        <div class="career-highlight">
+            Your potential is bigger than where you are today.
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     FINAL LETTER
+========================================================= -->
+
+<section id="letter" class="letter-section">
+
+    <div class="section-heading">
+
+        <span>A Message To You</span>
+
+        <h2>
+            For Veeresh
+        </h2>
+
+    </div>
+
+
+    <div class="letter">
+
+        <h2>
+            Dear Veeresh,
+        </h2>
+
+
+        <p>
+            When I think about our friendship, the funny thing is
+            that I never expected it to happen.
+        </p>
+
+
+        <p>
+            In B.Tech, you were simply my classmate. I didn't know
+            that much about you. I never imagined that one day,
+            after everything changed with my old friends, I would
+            end up sitting with your batch and building so many
+            memories with you.
+        </p>
+
+
+        <p>
+            I still remember those 4th-year lunches. You and your
+            friends would go to the canteen, and I didn't have enough
+            money to spend ₹60 every day. You helped me without making
+            it a big deal.
+        </p>
+
+
+        <p>
+            We watched so many movies together — Rayan, DJ: Double
+            Ismart, Kalki 2898 AD, Coolie, War 2, Saripodhaa
+            Sanivaaram, Game Changer, Lucky Baskhar and many more.
+        </p>
+
+
+        <p>
+            Every movie had its own little adventure. Sometimes we
+            were late. Sometimes reaching the theatre itself became
+            a story. But those moments are exactly why I remember
+            that year so well.
+        </p>
+
+
+        <p>
+            You are genuinely different, Veeresh. You have a sharp
+            mind, good knowledge and the kind of IQ that I have always
+            respected. You were the topper among the boys, and what
+            amazed me was that you never looked like someone who was
+            constantly studying.
+        </p>
+
+
+        <p>
+            I got my job at Cognizant after 4th year. You are still
+            trying to find your next opportunity, and I want to tell
+            you something honestly:
+        </p>
+
+
+        <p>
+            <strong>
+                Please upskill yourself.
+            </strong>
+        </p>
+
+
+        <p>
+            You have good years ahead of you. Don't settle for a place
+            that doesn't match your potential. You are capable of going
+            much higher. Keep learning, keep improving and keep moving.
+        </p>
+
+
+        <p>
+            Wherever life takes us from here, I'll always remember
+            how an unexpected seat in 4th year became the beginning
+            of one of the most memorable friendships of my college life.
+        </p>
+
+
+        <div class="name">
+            — Veeresh Balla
+        </div>
+
+        <div class="signature">
+            A friend. A classmate. A chapter I'll always remember.
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+    Made with memories, friendship and gratitude.
+
+    <br><br>
+
+    <strong>
+        S × V
+    </strong>
+
+    ·
+
+    One unexpected friendship.
+    One unforgettable chapter.
+
+</footer>
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script>
+
+    /*
+     * Reveal timeline cards when they enter
+     * the screen.
+     */
+
+    const timelineItems =
+        document.querySelectorAll(".timeline-item");
+
+
+    const observer =
+        new IntersectionObserver(
+
+            entries => {
+
+                entries.forEach(entry => {
+
+                    if (entry.isIntersecting) {
+
+                        entry.target.classList.add("visible");
+
+                    }
+
+                });
+
+            },
+
+            {
+                threshold: 0.15
+            }
+
+        );
+
+
+    timelineItems.forEach(item => {
+
+        observer.observe(item);
+
+    });
+
+
+    /*
+     * Subtle mouse movement effect
+     * for movie cards.
+     */
+
+    const movies =
+        document.querySelectorAll(".movie");
+
+
+    movies.forEach(movie => {
+
+        movie.addEventListener("mousemove", event => {
+
+            const rect =
+                movie.getBoundingClientRect();
+
+            const x =
+                event.clientX - rect.left;
+
+            const y =
+                event.clientY - rect.top;
+
+            const rotateX =
+                ((y / rect.height) - 0.5) * -5;
+
+            const rotateY =
+                ((x / rect.width) - 0.5) * 5;
+
+            movie.style.transform =
+                `perspective(600px)
+                 rotateX(${rotateX}deg)
+                 rotateY(${rotateY}deg)
+                 translateY(-6px)`;
+
+        });
+
+
+        movie.addEventListener("mouseleave", () => {
+
+            movie.style.transform = "";
+
+        });
+
+    });
+
+
+    /*
+     * Small fade-in effect for sections.
+     */
+
+    const cards =
+        document.querySelectorAll(
+            ".quality-card, .memory, .career, .letter"
+        );
+
+
+    const cardObserver =
+        new IntersectionObserver(
+
+            entries => {
+
+                entries.forEach((entry, index) => {
+
+                    if (entry.isIntersecting) {
+
+                        entry.target.style.opacity = "1";
+
+                        entry.target.style.transform =
+                            "translateY(0)";
+
+                    }
+
+                });
+
+            },
+
+            {
+                threshold: 0.08
+            }
+
+        );
+
+
+    cards.forEach(card => {
+
+        card.style.opacity = "0";
+
+        card.style.transform = "translateY(25px)";
+
+        card.style.transition =
+            "opacity .8s ease, transform .8s ease";
+
+        cardObserver.observe(card);
+
+    });
+
+</script>
+
+</body>
+</html>
